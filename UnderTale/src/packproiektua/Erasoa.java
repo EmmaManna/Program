@@ -12,6 +12,7 @@ public class Erasoa {
 		this.izena = pIzena;
 		this.mina = pMina;
 		this.hutsa = pHutsa;
+		//hau da dena lagunak!!
 	}
 	
 	//metodoak
