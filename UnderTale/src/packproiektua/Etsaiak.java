@@ -8,8 +8,8 @@ public class Etsaiak extends Pertsonaiak {
 	private boolean boss;
 	
 	//Eraikitzaileak
-	public Etsaiak(int pPS, int pErasoa, String pIzena, String pMota, String pDeskripzio, boolean pLagun, boolean pBoss) {
-		super(pPS, pErasoa, pIzena, pMota);
+	public Etsaiak(int pPS, int pErasoa, String pIzena, Erasoa pEraso, String pMota, String pDeskripzio, boolean pLagun, boolean pBoss) {
+		super(pPS, pErasoa, pIzena, pEraso, pMota);
 		this.hitzLista = new ListaHitzak();
 		this.deskripzioa = pDeskripzio;
 		this.laguna = pLagun;
