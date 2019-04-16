@@ -150,12 +150,16 @@ public class Jokalaria {
 			
 			if(npcDa){
 				npc = new Npc(ps,erasoa,izena,mota);
+				ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(npc);
 				//eraso = new Erasoa(izenaEraso,mina,hutsa);
 				//etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
 			}
 			else{
 				//npc = new Npc(0,0,"-","-");
+				eraso = new Erasoa(izenaEraso,mina,hutsa);
 				etsaia = new Etsaiak(ps,erasoa,izena,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
+				
+				ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
 				
 				ondorio1 = new Ondorio(deskOndorio1, psOn1, erasoOn1, karismaOn1);
 				ondorio2 = new Ondorio(deskOndorio2, psOn2, erasoOn2, karismaOn2);
@@ -167,10 +171,17 @@ public class Jokalaria {
 				hitz3 = new Hitza(izenaHitz3,ondorioH3,ondorio3);
 				hitz4 = new Hitza(izenaHitz4,ondorioH4,ondorio4);
 				
+				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz1);
+				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz2);
+				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz3);
+				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz4);
+				
 				etsaia.gehituHitza(hitz4);
 				etsaia.gehituHitza(hitz3);
 				etsaia.gehituHitza(hitz2);
 				etsaia.gehituHitza(hitz1);
+				
+				ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(etsaia);
 			}
 			
 			
@@ -178,21 +189,7 @@ public class Jokalaria {
 			egoera = new Egoera(hurrengoEgoera1,hurrengoEgoera2,etsaia,npc,deskribapena1, deskribapena2, deskribapena3);
 			ListaEgoerak.getListaEgoerak().gehituEgoera(egoera);
 		}
-		
-		//Lista Pertsonaiak hasieratu
-		String[] zatiakPertsonai= new String[40];
-		InputStream fitxPertsonaiak = this.getClass().getClassLoader().getResourceAsStream("fitxategiak/UndertaleStory.txt");
-		InputStreamReader inPertsonaiak= new InputStreamReader(fitxPertsonaiak);
-		
-		sc = new Scanner(inPertsonaiak);
-		String PertsonaiGuztiak = sc.nextLine();
-		zatiak= PertsonaiGuztiak.split(";");
-		
-		while(sc.hasNext()){
 			
-		}
-		
-		
 	}
 	
 	public void pertsonaiaSortu(){
