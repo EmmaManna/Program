@@ -27,15 +27,20 @@ public abstract class Pertsonaiak {
 		}
 	}
 	
-	public void minaJaso(){
-		//TODO
+	public void minaJaso(int pErasoa){
+		this.ps = this.ps-pErasoa;
 	}
 	
 	public void idatziIzena(){
 		System.out.println(this.izena);
 	}
 	
-	public void gehituErasoa(Erasoa pEraso){
-		this.erasoLista.gehituErasoa(pEraso);
+	public boolean hilDa(){
+		boolean hilda = false;
+		
+		if(this.ps <= 0){
+			hilda = true;
+		}
+		return hilda;
 	}
 }

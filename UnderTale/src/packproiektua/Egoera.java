@@ -29,4 +29,16 @@ public class Egoera {
 		}
 		return bera;
 	}
+	
+	public void borroka(){
+		int txanda = 0;
+	}
+	
+	private boolean bikoitiaDa(int pZenb){
+		boolean bikoitia = false;
+		
+		if(pZenb){
+			
+		}
+	}
 }

@@ -19,8 +19,9 @@ public class Jokalaria {
 	private Jokalaria() {
 		String izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena?");
 		String mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
-
-		this.pertsonaia = new Starter(100,20, izena, mota, 0, 0);
+		
+		Erasoa eraso = new Erasoa("",0,1); //Default luego se cambia
+		this.pertsonaia = new Starter(100,20, izena, eraso, mota, 0, 0);
 	}
 
 	//Singleton
@@ -185,7 +186,6 @@ public class Jokalaria {
 			}
 			
 			
-			
 			egoera = new Egoera(hurrengoEgoera1,hurrengoEgoera2,etsaia,npc,deskribapena1, deskribapena2, deskribapena3);
 			ListaEgoerak.getListaEgoerak().gehituEgoera(egoera);
 		}
@@ -208,4 +208,35 @@ public class Jokalaria {
 	public void borrokaPantaila(){
 		//TODO
 	}
+	
+	public int erasoEgin(int pErasoa){
+		String emandakoa = " ";
+		System.out.println("Eraso egiteko momentua da.");
+		Kronometroa.getKronometroa().zeroanJarri();
+		boolean ondo = false;
+		long denbora = 0;
+		int erasoa = 0;
+		
+		do{
+			try{
+				System.out.println("Azkar!");
+				emandakoa = Teklatua.getTeklatua().irakurriString("Erasotzeko tekla g da. Enter ere sakatu behar da");
+				
+				if(!emandakoa.equals("g")){
+					throw(new ErasoTeklaOkerra());
+				}
+				ondo = true;
+			}
+			
+			catch(ErasoTeklaOkerra e){
+				System.out.println("Tekla hori ez da esandakoa!");
+			}
+		}while(!ondo);
+		
+		denbora = Kronometroa.getKronometroa().pasaDirenSegunduakLortu();
+		erasoa = (int) (pErasoa - denbora);
+		
+		return erasoa;
+	}
+	
 }

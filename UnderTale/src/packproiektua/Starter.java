@@ -6,8 +6,8 @@ public class Starter extends Pertsonaiak {
 	private int karisma;
 	
 	//Eraikitzailea
-	public Starter(int pPS, int pErasoa, String pIzena, String pMota, int pXp, int pKarisma) {
-		super(pPS, pErasoa, pIzena, pMota);
+	public Starter(int pPS, int pErasoa, String pIzena, Erasoa pEraso,String pMota, int pXp, int pKarisma) {
+		super(pPS, pErasoa, pIzena, pEraso, pMota);
 		this.xp = pXp;
 		this.karisma = pKarisma;
 	}
@@ -56,5 +56,9 @@ public class Starter extends Pertsonaiak {
 		//TODO
 	}
 	
+	public void erasoEgin(){
+		int eras = 0;
+		eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
+	}
 
 }
