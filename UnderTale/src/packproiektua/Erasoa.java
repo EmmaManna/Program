@@ -15,6 +15,11 @@ public class Erasoa {
 		//hau da dena lagunak!!
 	}
 	
+	//getterrak
+	public int getMina(){
+		return this.mina;
+	}
+	
 	//metodoak
 	private boolean hutsEgin(){
 		//TODO

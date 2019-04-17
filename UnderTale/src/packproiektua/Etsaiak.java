@@ -43,7 +43,15 @@ public class Etsaiak extends Pertsonaiak {
 	}
 	
 	public void erasoEgin(){
-		Jokalaria.getJokalaria().getPertsonaia().minaJaso(this.erasoa);
+		int mina = 0;
+		
+		if(this.eraso.minEgin()){
+			mina = (int) (this.erasoa*this.eraso.getMina()*(0.01));
+			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
+		}
+		else{
+			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
+		}
 	}
 
 }

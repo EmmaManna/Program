@@ -58,8 +58,16 @@ public class Starter extends Pertsonaiak {
 	
 	public void erasoEgin(Etsaiak pEtsaia){
 		int eras = 0;
-		eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
-		pEtsaia.minaJaso(eras);
+		
+		if(this.eraso.minEgin()){
+			eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
+			eras = (int) (eras*this.eraso.getMina()*(0.01));
+			pEtsaia.minaJaso(eras);
+		}
+		else{
+			pEtsaia.minaJaso(eras);
+		}
+		
 	}
 
 }
