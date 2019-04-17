@@ -18,14 +18,14 @@ public abstract class Pertsonaiak {
 	}
 
 	//Metodoak
-	public void borrokatu(){
+	/*public void borrokatu(){
 		//TODO
 		public boolean aldeEgin(){
 			//TODO
 			 int etsaiarenBizitza
 			if(this.ps>)
 		}
-	}
+	}*/
 	
 	public void minaJaso(int pErasoa){
 		this.ps = this.ps-pErasoa;

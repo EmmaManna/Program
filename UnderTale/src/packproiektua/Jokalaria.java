@@ -32,6 +32,11 @@ public class Jokalaria {
 		return nireJokalaria;
 	}
 	
+	//Getterra
+	public Starter getPertsonaia(){
+		return this.pertsonaia;
+	}
+	
 	//Metodoak
 	public void partidaJokatu(){
 		//TODO

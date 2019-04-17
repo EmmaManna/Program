@@ -41,5 +41,9 @@ public class Etsaiak extends Pertsonaiak {
 		}
 		return bera;
 	}
+	
+	public void erasoEgin(){
+		Jokalaria.getJokalaria().getPertsonaia().minaJaso(this.erasoa);
+	}
 
 }

@@ -30,15 +30,44 @@ public class Egoera {
 		return bera;
 	}
 	
-	public void borroka(){
+	public void borroka(){ //Bikoitia Jokalariaren txanda, bakoitia etsaiarena
 		int txanda = 0;
+		boolean amaitu = false;
+		int ps = 0;
+		
+		while(!amaitu){
+			if(this.bikoitiaDa(txanda)){
+				Jokalaria.getJokalaria().getPertsonaia().erasoEgin(this.etsaia);
+				ps = this.etsaia.ps;
+				System.out.println("Etsaiaren Ps-ak orain" +ps+ " dira.");
+			}
+			else{
+				this.etsaia.erasoEgin();
+				ps = Jokalaria.getJokalaria().getPertsonaia().ps;
+				System.out.println("Zure Ps-ak " +ps+ " dira.");
+			}
+			
+			if(this.etsaia.hilDa()){
+				System.out.println(this.etsaia.izena + " hil da...");
+				amaitu = true;
+			}
+			else{
+				if(Jokalaria.getJokalaria().getPertsonaia().hilDa()){
+					System.out.println("Oh! Hil zara...");
+					amaitu = true;
+				}
+			}
+			
+			txanda = txanda+1;
+		}
 	}
 	
 	private boolean bikoitiaDa(int pZenb){
 		boolean bikoitia = false;
 		
-		if(pZenb){
-			
+		if(pZenb%2==0){
+			bikoitia = true;
 		}
+		return bikoitia;
 	}
 }

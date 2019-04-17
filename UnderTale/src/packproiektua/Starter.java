@@ -56,9 +56,10 @@ public class Starter extends Pertsonaiak {
 		//TODO
 	}
 	
-	public void erasoEgin(){
+	public void erasoEgin(Etsaiak pEtsaia){
 		int eras = 0;
 		eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
+		pEtsaia.minaJaso(eras);
 	}
 
 }
