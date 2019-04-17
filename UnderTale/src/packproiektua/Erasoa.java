@@ -47,4 +47,8 @@ public class Erasoa {
 		
 		return bera;
 	}
+	
+	public void inprimatuIzena(){
+		System.out.println(this.izena);
+	}
 }
