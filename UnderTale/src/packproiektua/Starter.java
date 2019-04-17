@@ -65,6 +65,7 @@ public class Starter extends Pertsonaiak {
 			pEtsaia.minaJaso(eras);
 		}
 		else{
+			System.out.println("Erasoak huts egin du!");
 			pEtsaia.minaJaso(eras);
 		}
 		

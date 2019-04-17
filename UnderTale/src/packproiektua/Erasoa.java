@@ -22,7 +22,6 @@ public class Erasoa {
 	
 	//metodoak
 	private boolean hutsEgin(){
-		//TODO
 		boolean emangoDio = false;
 		Dadoa.getDadoa().bota();
 		int zbk = Dadoa.getDadoa().getGoikoAldea();
@@ -34,7 +33,6 @@ public class Erasoa {
 	}
 
 	public boolean minEgin(){
-		//TODO
 		return this.hutsEgin();
 	}
 	

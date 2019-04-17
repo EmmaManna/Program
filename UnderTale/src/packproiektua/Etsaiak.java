@@ -50,6 +50,7 @@ public class Etsaiak extends Pertsonaiak {
 			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
 		}
 		else{
+			System.out.println("Erasoak huts egin du!");
 			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
 		}
 	}
