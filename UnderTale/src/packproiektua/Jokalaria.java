@@ -115,7 +115,19 @@ public class Jokalaria {
 		
 		egungoEgoera = this.aukeratu(egungoEgoera);
 		
+		//Partidaren atal nagusia
+		boolean amaitu = false;
+		amaitu = this.partidaJarraitu();
 		
+		boolean hilda = false;
+		
+		while(!amaitu && hilda ){
+		
+			
+			
+			
+			amaitu = this.partidaJarraitu();
+		}
 	}
 	
 	
@@ -349,4 +361,30 @@ public class Jokalaria {
 		return erasoa;
 	}
 	
+	public boolean partidaJarraitu(){
+		boolean jarraitu = false;
+		String zer = "-";
+		boolean ondo = false;
+		
+		while(!ondo){
+			try{
+				System.out.println("Partida jokatzen jarraitu nahi duzu?");
+				zer = Teklatua.getTeklatua().irakurriString("Aukeratu: Bai   Ez");
+				if(!zer.equals("Bai")||!zer.equals("Ez")){
+					throw (new TeklaOkerra());
+				}
+				else{
+					ondo = true;
+					if(zer.equals("Bai")){
+						jarraitu = true;
+					}
+				}
+			}
+			catch(TeklaOkerra e){
+				System.out.println("Bai edo Ez erantzun behar duzu.");
+			}
+		}
+		
+		return jarraitu;
+	}
 }
