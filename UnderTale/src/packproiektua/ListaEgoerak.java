@@ -11,7 +11,7 @@ public class ListaEgoerak {
 	
 	//Eraikitzailea
 	private ListaEgoerak() {
-		// TODO Auto-generated constructor stub
+		this.lista = new ArrayList<Egoera>();
 	}
 	
 	//Singleton patroia

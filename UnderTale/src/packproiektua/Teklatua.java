@@ -27,15 +27,13 @@ public class Teklatua {
 		return this.sc.nextLine();
 	}
 	
-	public int irakurriInt(String pMezua, int pTxikiena, int pHandiena){
+	public int irakurriInt(String pMezua, int pTxikiena, int pHandiena) throws TeklaOkerra{
 		System.out.println(pMezua);
 		int zenb = this.sc.nextInt();
 		
 		if(zenb > pHandiena || zenb < pTxikiena){
-			zenb = 0;
-			System.out.println("Zenbaki hori ez du balio");
+			throw (new TeklaOkerra());
 		}
-		
 		return zenb;
 	}
 }

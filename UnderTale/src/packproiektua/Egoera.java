@@ -10,7 +10,7 @@ public class Egoera {
 	private String deskribapena2;
 	private String deskribapena3;
 	
-	
+	//Eraikitzailea
 	public Egoera(int pHurrengoEgoera1, int pHurrengoEgoera2, Etsaiak pEtsaia, Npc pNpc, String pDesk1, String pDesk2,String pDesk3) {
 		this.hurrengoEgoera1 = pHurrengoEgoera1;
 		this.hurrengoEgoera2 = pHurrengoEgoera2;
@@ -21,6 +21,18 @@ public class Egoera {
 		this.deskribapena3 = pDesk3;
 	}
 	
+	
+	//Getterrak
+	public int getHurrengoEgoera1(){
+		return this.hurrengoEgoera1;
+	}
+	
+	public int getHurrengoEgoera2(){
+		return this.hurrengoEgoera2;
+	}
+	
+	
+	//Gainontzeko metodoak
 	public boolean beraDa(Egoera pEgoera){
 		boolean bera = false;
 		
@@ -73,5 +85,44 @@ public class Egoera {
 			bikoitia = true;
 		}
 		return bikoitia;
+	}
+	
+	public void inprimatuDesk1(){
+		System.out.println(deskribapena1);
+	}
+	
+	public void inprimatuDesk2(){
+		System.out.println(deskribapena2);
+	}
+	
+	public void inprimatuDesk3(){
+		System.out.println(deskribapena3);
+	}
+	
+	public boolean deskDago1(){
+		boolean dago = true;
+		
+		if(this.deskribapena1.equals("-")){
+			dago = false;
+		}
+		return dago;
+	}
+	
+	public boolean deskDago2(){
+		boolean dago = true;
+		
+		if(this.deskribapena2.equals("-")){
+			dago = false;
+		}
+		return dago;
+	}
+	
+	public boolean deskDago3(){
+		boolean dago = true;
+		
+		if(this.deskribapena3.equals("-")){
+			dago = false;
+		}
+		return dago;
 	}
 }

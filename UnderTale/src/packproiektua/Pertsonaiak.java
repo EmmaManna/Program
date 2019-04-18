@@ -16,6 +16,15 @@ public abstract class Pertsonaiak {
 		this.eraso = pEraso;
 		this.mota = pMota;
 	}
+	
+	//Setterrak
+	public void setIzenaAldatu(String pIzena){
+		this.izena = pIzena;
+	}
+	
+	public void setErasoa(Erasoa pEraso){
+		this.eraso = pEraso;
+	}
 
 	//Metodoak
 	/*public void borrokatu(){
@@ -26,6 +35,12 @@ public abstract class Pertsonaiak {
 			if(this.ps>)
 		}
 	}*/
+	
+	public boolean aldeEgin(){
+		boolean bool = false;
+		//No entiendo
+		//int etsaiarenBizitza = ListaPertsonaiak.getListaPertsonaiak().
+	}
 	
 	public void minaJaso(int pErasoa){
 		this.ps = this.ps-pErasoa;

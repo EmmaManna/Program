@@ -25,18 +25,25 @@ public class Starter extends Pertsonaiak {
 			case "ACT":
 				this.hitzEgin();
 			case "FIGHT":
-				this.hautatuErasoak();
+				this.erasoEgin();
 		}
 	}
 	
 	public void barkamenaEskatu(){ //MERCY
 		//TODO
+		boolean bool;
 		String bidalitakoAgindua="";
 		//esto ya lo hace arriba
 		//bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
 		switch(bidalitakoAgindua){
 		case "alde egin":
-			this.aldeEgin();
+			bool=this.aldeEgin();
+			if (!bool){
+				this.aginduaEgin();
+			}
+			else{
+
+			}
 		}
 
 	}
@@ -44,17 +51,16 @@ public class Starter extends Pertsonaiak {
 	public void hitzEgin(){
 		//TODO
 		Ondorio izangoDuenOndorioa;
-		String bidalitakoAgindua="";
 		//Esto lo hace arriba
 		//bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
 		izangoDuenOndorioa=this.lista.zerEsanDu(bidalitakoAgindua);
 		izangoDuenOndorioa.ondorioaEragin(this.ps, this.karisma,this.erasoa);
-	
+		this.aginduaEgin();
 	}
 	
-	public void hautatuErasoak(){
+	/*public void hautatuErasoak(){
 		//TODO
-	}
+	}*/
 	
 	public void erasoEgin(Etsaiak pEtsaia){
 		int eras = 0;

@@ -53,4 +53,39 @@ public class ErasoPosibleak {
 			System.out.println("Lau eraso daude jada");
 		}
 	}
+	
+	public void inprimatuErasoak(){
+		Iterator<Erasoa> itr = this.getIteradorea();
+		int kont = 0;
+		Erasoa eraso = null;
+		
+		while(itr.hasNext()){
+			eraso = itr.next();
+			System.out.print(kont);
+			eraso.inprimatuIzena();
+			kont = kont+1;
+		}
+	}
+	
+	public int tamaina(){
+		return this.lista.size();
+	}
+	
+	
+	public Erasoa aukeratuErasoa(int pZenb){
+		Iterator<Erasoa> itr = this.getIteradorea();
+		Erasoa eraso = null;
+		int kont = 0;
+		boolean aurkitua = false;
+		
+		while(itr.hasNext() && !aurkitua){
+			eraso = itr.next();
+			
+			if(kont == pZenb){
+				aurkitua = true;
+			}
+			kont = kont+1;
+		}
+		return eraso;
+	}
 }
