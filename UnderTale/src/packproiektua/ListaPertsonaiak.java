@@ -34,27 +34,21 @@ public class ListaPertsonaiak {
 		boolean etsaia = false;
 		
 		if(pPertsonaiak instanceof Etsaiak){
-			pPertsonaiak = (Etsaiak)pPertsonaiak;
 			etsaia = true;
 		}
-		else{
-			if(pPertsonaiak instanceof Npc){
-				pPertsonaiak = (Npc) pPertsonaiak;
-			}
-		}
+		
 		
 		while(itr.hasNext() && !aurkitua){
 			pertsonai = itr.next();
 			
 			if(pertsonai instanceof Etsaiak && etsaia){
-				if(((Etsaiak) pertsonai).izenBeraDu(pPertsonaiak)){
+				if(((Etsaiak) pertsonai).izenBeraDu((Etsaiak) pPertsonaiak)){
 					aurkitua = true;
 				}
 			}
 			else{
 				if(pertsonai instanceof Npc && !etsaia){
-					pertsonai = (Npc) pertsonai;
-					if(pertsonai.izenBeraDu(pPertsonaiak)){
+					if(((Npc)pertsonai).izenBeraDu((Npc)pPertsonaiak)){
 						aurkitua = true;
 					}
 				}
@@ -65,7 +59,7 @@ public class ListaPertsonaiak {
 			this.lista.add(pPertsonaiak);
 		}
 		else{
-			System.out.println("Etsaia listan dago jada");
+			System.out.println("Pertsonaia listan dago jada");
 		}
 		
 	}

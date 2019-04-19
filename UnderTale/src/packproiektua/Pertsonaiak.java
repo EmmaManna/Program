@@ -36,11 +36,11 @@ public abstract class Pertsonaiak {
 		}
 	}*/
 	
-	public boolean aldeEgin(){
+	/*public boolean aldeEgin(){
 		boolean bool = false;
 		//No entiendo
 		//int etsaiarenBizitza = ListaPertsonaiak.getListaPertsonaiak().
-	}
+	}*/
 	
 	public void minaJaso(int pErasoa){
 		this.ps = this.ps-pErasoa;

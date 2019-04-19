@@ -44,9 +44,9 @@ public class ListaHitzak {
 		}
 	}
 	
-	public Ondorio bilatuOndorio(String pIzena){ //zer egiten du?
+	/*public Ondorio bilatuOndorio(String pIzena){ //zer egiten du?
 		//TODO
-	}
+	}*/
 	
 	public Ondorio zerEsanDu(String pHitz){
 		//TODO
