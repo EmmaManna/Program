@@ -35,8 +35,19 @@ public class Hitza {
 	}
 	
 	
-	public Ondorioa zeinOndorioDu(boolean pOndorio){ //zer egiten du?
-		//TODO
+	public boolean ondorioaDu(){
+		return this.ondorioa;
+	}
+	
+	public void inprimatuIzena(){
+		System.out.println(this.izena);
+	}
+	
+	public int ondorioaEgikaratu(){
+		int efektua = 0;
+		efektua = this.efektua.ondorioaEragin();
+		
+		return efektua;
 	}
 
 }

@@ -54,5 +54,31 @@ public class Etsaiak extends Pertsonaiak {
 			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
 		}
 	}
+	
+	public void inprimatuHitzak(){
+		this.hitzLista.inprimatuHitzak();
+	}
+	
+	public int listaTamaina(){
+		return this.hitzLista.tamaina();
+	}
+	
+	public Hitza bilatuHitza(int pZenb){
+		return this.hitzLista.bilatuHitza(pZenb);
+	}
+	
+	public void lagunEgin(){
+		this.laguna = true;
+	}
+	
+	public boolean lagunaDa(){
+		boolean lagunaDa = false;
+		
+		if(this.laguna){
+			lagunaDa = true;
+		}
+		
+		return lagunaDa;
+	}
 
 }

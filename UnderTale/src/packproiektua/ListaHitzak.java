@@ -60,4 +60,41 @@ public class ListaHitzak {
 		}
 		return emaitza;
 	}
+	
+	public void inprimatuHitzak(){
+		int kont = 0;
+		Iterator<Hitza> itr = this.getIteradorea();
+		Hitza hitz = null;
+		
+		while(itr.hasNext()){
+			hitz = itr.next();
+			System.out.println(kont);
+			hitz.inprimatuIzena();
+			kont = kont+1;
+		}
+	}
+	
+	public Hitza bilatuHitza(int pZenb){
+		Hitza hitz = null;
+		Iterator <Hitza> itr = this.getIteradorea();
+		boolean aurkitua = false;
+		int kont = 0;
+		
+		while(itr.hasNext() && !aurkitua){
+			hitz = itr.next();
+			
+			if(kont == pZenb){
+				aurkitua = true;
+			}
+			
+			kont = kont+1;
+		}
+		
+		return hitz;
+	}
+	
+	public int tamaina(){
+		return this.lista.size();
+	}
 }
+

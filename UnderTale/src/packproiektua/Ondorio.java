@@ -17,11 +17,55 @@ public class Ondorio {
 	}
 	
 	//Metodoa
-	public void ondorioaEragin(int pPS, int pKarisma, int pErasoa){
-		//TODO
-		pPS=pPS+this.psIgoJaitsi;
-		pKarisma=pKarisma+this.karismaIgoJaitsi;
-		pErasoa=pErasoa+this.erasoaIgoJaitsi;
+	public int ondorioaEragin(){
+		int ondorioa = 0;
+		
+		if(this.erasoa()){
+			ondorioa = this.erasoaIgoJaitsi;
+					
+		}
+		else{
+			if(this.karisma()){
+				ondorioa = this.karismaIgoJaitsi;
+			}
+			else{
+				if(this.ps()){
+					ondorioa = this.psIgoJaitsi;
+				}
+			}
+		}
+		
+		return ondorioa;
+	}
+	
+	public boolean ps(){
+		boolean ps = false;
+		
+		if(this.psIgoJaitsi != 0){
+			ps = true;
+		}
+		
+		return ps;
+	}
+	
+	public boolean karisma(){
+		boolean karisma = false;
+		
+		if(this.karismaIgoJaitsi != 0){
+			karisma = true;
+		}
+		
+		return karisma;
+	}
+	
+	public boolean erasoa(){
+		boolean erasoa = false;
+		
+		if(this.erasoaIgoJaitsi != 0){
+			erasoa = true;
+		}
+		
+		return erasoa;
 	}
 
 }

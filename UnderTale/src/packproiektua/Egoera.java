@@ -71,11 +71,20 @@ public class Egoera {
 				if(Jokalaria.getJokalaria().getPertsonaia().hilDa()){
 					System.out.println("Oh! Hil zara...");
 					amaitu = true;
+					
 				}
 			}
 			
 			txanda = txanda+1;
 		}
+	}
+	
+	public void hitzEgin(){
+		Jokalaria.getJokalaria().getPertsonaia().hitzEgin(this.etsaia);
+	}
+	
+	public boolean barkamenaEskatu(){
+		return Jokalaria.getJokalaria().getPertsonaia().barkamenaEskatu(this.etsaia);
 	}
 	
 	private boolean bikoitiaDa(int pZenb){
@@ -124,5 +133,13 @@ public class Egoera {
 			dago = false;
 		}
 		return dago;
+	}
+	
+	public boolean hilDaEtsaia(){
+		boolean hilda = false;
+		if(this.etsaia.hilDa()){
+			hilda = true;
+		}
+		return hilda;
 	}
 }

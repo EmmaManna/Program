@@ -14,48 +14,69 @@ public class Starter extends Pertsonaiak {
 	
 	
 	//metodoak
-	public void aginduaEgin(){
-		//TODO
+	public boolean aginduaEgin(Egoera pEgoera){
+		boolean aldeEgin = false;
 		String bidalitakoAgindua="";
 		bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
 		
 		switch(bidalitakoAgindua){
 			case "MERCY":
-				this.barkamenaEskatu();
+				aldeEgin = pEgoera.barkamenaEskatu();
 			case "ACT":
-				this.hitzEgin();
+				pEgoera.hitzEgin();
 			case "FIGHT":
-				this.erasoEgin();
+				pEgoera.borroka();
 		}
+		return aldeEgin;
 	}
 	
-	public void barkamenaEskatu(){ //MERCY
-		//TODO
-		boolean bool;
-		String bidalitakoAgindua="";
-		//esto ya lo hace arriba
-		//bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
-		switch(bidalitakoAgindua){
-		case "alde egin":
-			bool=this.aldeEgin();
-			if (!bool){
-				this.aginduaEgin();
-			}
-			else{
-
-			}
+	public boolean barkamenaEskatu(Etsaiak pEtsaia){ //MERCY
+		boolean barkatuta = false;
+		System.out.println(pEtsaia.izena+"-ren aurrean belaunikatu zara");
+		System.out.println("+ Barkaidazu mesedez, utzidazu nire bidea jarraitzen");
+		
+		if(this.karisma >= 50 || pEtsaia.lagunaDa()){
+			pEtsaia.lagunEgin();
+			System.out.println("- Ongi da, barkatuta zaude, segi zure bidea.");
+			barkatuta = true;
 		}
+		else{
+			System.out.println("- Kar! Kar! Kar! Ze espero zenuen? Pasatzen uztea ezer egin gabe?");
+			System.out.println("- Kar! Kar! Kar! Momentuz hemen geldituko zara");
+		}
+		return barkatuta;
 
 	}
 	
-	public void hitzEgin(){
-		//TODO
-		Ondorio izangoDuenOndorioa;
-		//Esto lo hace arriba
-		//bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
-		izangoDuenOndorioa=this.lista.zerEsanDu(bidalitakoAgindua);
-		izangoDuenOndorioa.ondorioaEragin(this.ps, this.karisma,this.erasoa);
-		this.aginduaEgin();
+	public void hitzEgin(Etsaiak pEtsaia){
+		boolean ondo = false;
+		int zenb = 0;
+		Hitza hitz = null;
+		
+		while(!ondo){
+			try{
+				System.out.println("Zer esan nahi duzu?");
+				pEtsaia.inprimatuHitzak();
+				zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina());
+				hitz = pEtsaia.bilatuHitza(zenb);
+				ondo = true;
+			
+			}
+			catch(TeklaOkerra e){
+				System.out.println("Hori ez da emandako aukera bat, berriz saiatu");
+			}
+		}
+		
+		if(hitz.ondorioaDu()){
+			int efektua = hitz.ondorioaEgikaratu();
+			Ondorio ondorio = hitz.getEfektua();
+			this.egikaratuOndorioa(efektua, ondorio);
+		}
+		else{
+			System.out.println("Esandakoak ez du inolako eraginik...");
+		}
+		
+		
 	}
 	
 	/*public void hautatuErasoak(){
@@ -75,6 +96,48 @@ public class Starter extends Pertsonaiak {
 			pEtsaia.minaJaso(eras);
 		}
 		
+	}
+	
+	public void egikaratuOndorioa(int pEfektua, Ondorio pOndorio){
+		boolean positibo = false;
+		if(pEfektua > 0){
+			positibo = true;
+		}
+		
+		if(pOndorio.erasoa()){
+			this.erasoa = this.erasoa + pEfektua;
+			if(positibo){
+				System.out.println("Zure erasoa igo da!");
+			}
+			else{
+				System.out.println("Oh! Zure erasoa jaitsi da...");
+			}
+			System.out.println("Erasoa orain " + this.erasoa + " da.");
+		}
+		else{
+			if(pOndorio.karisma()){
+				this.karisma = this.karisma + pEfektua;
+				if(positibo){
+					System.out.println("Zure karisma igo da!");
+				}
+				else{
+					System.out.println("Oh! Zure karisma jaitsi da...");
+				}
+				System.out.println("Karisma orain " + this.karisma + " da.");
+			}
+			else{
+				if(pOndorio.ps()){
+					this.ps = this.ps + pEfektua;
+					if(positibo){
+						System.out.println("Zure ps-ak igo dira!");
+					}
+					else{
+						System.out.println("Oh! Zure ps-ak jaitsi dira...");
+					}
+					System.out.println("Ps-ak orain " + this.ps + " dira.");
+				}
+			}
+		}
 	}
 
 }

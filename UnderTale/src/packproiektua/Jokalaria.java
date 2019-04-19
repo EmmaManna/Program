@@ -121,7 +121,7 @@ public class Jokalaria {
 		
 		boolean hilda = false;
 		
-		while(!amaitu && hilda ){
+		while(!amaitu && hilda){
 		
 			
 			
@@ -325,11 +325,11 @@ public class Jokalaria {
 	
 	/*public void etsaiekinTopatu(){
 		//TODO
-	}
+	}*/
 	
 	public void borrokaPantaila(){
 		//TODO
-	}*/
+	}
 	
 	public int erasoEgin(int pErasoa){
 		String emandakoa = " ";
@@ -386,5 +386,24 @@ public class Jokalaria {
 		}
 		
 		return jarraitu;
+	}
+	
+	public void zerEgin(Egoera pEgoera){
+		boolean hilDaS = false;
+		boolean hilDaE = false;
+		boolean aldeEgin = false;
+		
+		while(!hilDaS && !hilDaE && !aldeEgin){
+			aldeEgin = this.getPertsonaia().aginduaEgin(pEgoera);
+			
+			if(this.getPertsonaia().hilDa()){
+				hilDaS = true;
+			}
+			else{
+				if(pEgoera.hilDaEtsaia()){
+					hilDaE = true;
+				}
+			}
+		}
 	}
 }
