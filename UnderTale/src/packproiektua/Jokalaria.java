@@ -120,13 +120,49 @@ public class Jokalaria {
 		amaitu = this.partidaJarraitu();
 		
 		boolean hilda = false;
+		boolean bukatuta = false;
 		
-		while(!amaitu && hilda){
+		while(!amaitu && hilda && !bukatuta){
+			if(egungoEgoera.getHurrengoEgoera1() < 0){
+				bukatuta = true;
+			}
+			else{
+				if(egungoEgoera.deskDago1()){
+					egungoEgoera.inprimatuDesk1();
+				}
+			
+				if(egungoEgoera.deskDago2()){
+					egungoEgoera.inprimatuDesk2();
+				}
+			
+				if(!egungoEgoera.npcDa()){
+					this.zerEgin(egungoEgoera);
+				}
+			
+			
+				hilda = this.getPertsonaia().hilDa();
+			
+				if(!hilda){
+					if(egungoEgoera.deskDago3()){
+						egungoEgoera.inprimatuDesk3();
+						egungoEgoera = this.aukeratu(egungoEgoera);
+					}
+				
+					amaitu = this.partidaJarraitu();
+				}
+			}
+		}
 		
-			
-			
-			
-			amaitu = this.partidaJarraitu();
+		if(hilda){
+			System.out.println("Oso ongi borrokatu duzu, baina ez da nahikoa izan. Hurrengorarte lagun <3");
+		}
+		else{
+			if(amaitu){
+				System.out.println("Ea noiz bueltatzen zaren! Zure zain egongo gara!");
+			}
+			else{
+				System.out.println("Zorionak! Amaierara heldu zara, jokoa amaitu da");
+			}
 		}
 	}
 	
@@ -247,11 +283,11 @@ public class Jokalaria {
 			if(npcDa){
 				npc = new Npc(ps,erasoa,izena,mota);
 				ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(npc);
-				//eraso = new Erasoa(izenaEraso,mina,hutsa);
-				//etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
+				eraso = new Erasoa("-",0,-1);
+				etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
 			}
 			else{
-				//npc = new Npc(0,0,"-","-");
+				npc = new Npc(0,0,"-","-");
 				eraso = new Erasoa(izenaEraso,mina,hutsa);
 				etsaia = new Etsaiak(ps,erasoa,izena,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
 				

@@ -142,4 +142,13 @@ public class Egoera {
 		}
 		return hilda;
 	}
+	
+	public boolean npcDa(){
+		boolean npc = false;
+		
+		if(!this.npc.izena.equals("-")){
+			npc = true;
+		}
+		return npc;
+	}
 }
