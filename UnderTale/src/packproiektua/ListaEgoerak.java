@@ -26,23 +26,18 @@ public class ListaEgoerak {
 		return this.lista.iterator();
 	}
 	
-	public void gehituEgoera(Egoera pEgoera){
-		boolean aurkitua = false;
+	public void gehituEgoera(Egoera pEgoera) throws ListanDago{
 		Iterator<Egoera> itr = this.getIteradorea();
 		Egoera ego = null;
 		
-		while(itr.hasNext() && !aurkitua){
+		while(itr.hasNext()){
 			ego = itr.next();
 			
 			if(ego.beraDa(pEgoera)){
-				aurkitua = true;
+				throw(new ListanDago());
 			}
 		}
-		
-		if(!aurkitua){
-			this.lista.add(pEgoera);
-		}
-		
+		this.lista.add(pEgoera);
 	}
 	
 	public Egoera hurrengoEgoera(int pZenbakia){

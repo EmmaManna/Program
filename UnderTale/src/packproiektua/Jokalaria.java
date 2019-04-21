@@ -310,7 +310,13 @@ public class Jokalaria {
 			
 				if(npcDa){
 					npc = new Npc(ps,erasoa,izenaP,mota);
-					ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(npc);
+					try{
+						ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(npc);
+					}
+					catch(ListanDago e){
+						System.out.println("Npc-a listan dago");
+					}
+					
 					eraso = new Erasoa("-",0,-1);
 					etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
 				}
@@ -320,7 +326,12 @@ public class Jokalaria {
 						eraso = new Erasoa(izenaEraso,mina,hutsa);
 						etsaia = new Etsaiak(ps,erasoa,izenaP,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
 				
-						ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
+						try{
+							ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
+						}
+						catch(ListanDago e){
+							System.out.println("Erasoa listan dago jada");
+						}
 				
 						ondorio1 = new Ondorio(deskOndorio1, psOn1, erasoOn1, karismaOn1);
 						ondorio2 = new Ondorio(deskOndorio2, psOn2, erasoOn2, karismaOn2);
@@ -332,17 +343,80 @@ public class Jokalaria {
 						hitz3 = new Hitza(izenaHitz3,ondorioH3,ondorio3);
 						hitz4 = new Hitza(izenaHitz4,ondorioH4,ondorio4);
 				
-						HitzPosibleak.getHitzPosibleak().gehituHitza(hitz1);
-						HitzPosibleak.getHitzPosibleak().gehituHitza(hitz2);
-						HitzPosibleak.getHitzPosibleak().gehituHitza(hitz3);
-						HitzPosibleak.getHitzPosibleak().gehituHitza(hitz4);
+						try{
+							HitzPosibleak.getHitzPosibleak().gehituHitza(hitz1);
+						}
+						catch(ListanDago e){
+							System.out.println("Hitza listan dago");
+						}
+						try{
+							HitzPosibleak.getHitzPosibleak().gehituHitza(hitz2);
+						}
+						catch(ListanDago e){
+							System.out.println("Hitza listan dago");
+						}
+						try{
+							HitzPosibleak.getHitzPosibleak().gehituHitza(hitz3);
+						}
+						catch(ListanDago e){
+							System.out.println("Hitza listan dago");
+						}
+						try{
+							HitzPosibleak.getHitzPosibleak().gehituHitza(hitz4);
+						}
+						catch(ListanDago e){
+							System.out.println("Hitza listan dago");
+						}
+						
+						
+						
 				
-						etsaia.gehituHitza(hitz4);
-						etsaia.gehituHitza(hitz3);
-						etsaia.gehituHitza(hitz2);
-						etsaia.gehituHitza(hitz1);
+						try{
+							etsaia.gehituHitza(hitz4);
+						}
+						catch(ListanDago e1){
+							System.out.println("Hitza listan dago");
+						}
+						catch(ElementuGehiegi e2){
+							System.out.println("Etsai honek lau hitz ditu bere listan jada");
+						}
+						try{
+							etsaia.gehituHitza(hitz3);
+						}
+						catch(ListanDago e1){
+							System.out.println("Hitza listan dago");
+						}
+						catch(ElementuGehiegi e2){
+							System.out.println("Etsai honek lau hitz ditu bere listan jada");
+						}
+						try{
+							etsaia.gehituHitza(hitz2);
+						}
+						catch(ListanDago e1){
+							System.out.println("Hitza listan dago");
+						}
+						catch(ElementuGehiegi e2){
+							System.out.println("Etsai honek lau hitz ditu bere listan jada");
+						}
+						try{
+							etsaia.gehituHitza(hitz1);
+						}
+						catch(ListanDago e1){
+							System.out.println("Hitza listan dago");
+						}
+						catch(ElementuGehiegi e2){
+							System.out.println("Etsai honek lau hitz ditu bere listan jada");
+						}
 				
-						ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(etsaia);
+						
+						
+						try{
+							ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(etsaia);
+						}
+						catch(ListanDago e){
+							System.out.println("Etsaia listan dago");
+						}
+						
 					}
 					else{
 					eraso = new Erasoa("-",0,-1);
@@ -353,7 +427,13 @@ public class Jokalaria {
 			
 			
 				egoera = new Egoera(hurrengoEgoera1,hurrengoEgoera2,etsaia,npc,deskribapena1, deskribapena2, deskribapena3);
-				ListaEgoerak.getListaEgoerak().gehituEgoera(egoera);
+				try{
+					ListaEgoerak.getListaEgoerak().gehituEgoera(egoera);
+				}
+				catch(ListanDago e){
+					System.out.println("Egoera listan dago jada");
+				}
+				
 			}
 		}
 		catch(NumberFormatException e){

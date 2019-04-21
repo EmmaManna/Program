@@ -28,30 +28,18 @@ public class ErasoPosibleak {
 	}
 	
 	
-	public void gehituErasoa(Erasoa pErasoa){
+	public void gehituErasoa(Erasoa pErasoa)throws ListanDago{
 		Iterator<Erasoa> itr = this.getIteradorea();
 		Erasoa eraso = null;
-		boolean aurkitua = false;
 		
-		if(this.lista.size() < 4){
-			while(itr.hasNext() && !aurkitua){
-				eraso = itr.next();
+		while(itr.hasNext()){
+			eraso = itr.next();
 			
-				if(eraso.izenBeraDu(pErasoa)){
-					aurkitua = true;
-				}
-			}
-		
-			if(!aurkitua){
-				this.lista.add(pErasoa);
-			}
-			else{
-				System.out.println("Erasoa bazegoen listan");
+			if(eraso.izenBeraDu(pErasoa)){
+				throw(new ListanDago());
 			}
 		}
-		else{
-			System.out.println("Lau eraso daude jada");
-		}
+		this.lista.add(pErasoa);
 	}
 	
 	public void inprimatuErasoak(){

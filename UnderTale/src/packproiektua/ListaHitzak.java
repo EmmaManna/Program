@@ -18,35 +18,19 @@ public class ListaHitzak {
 	}
 	
 	//Metodoak
-	public void gehituHitza(Hitza pHitza){
+	public void gehituHitza(Hitza pHitza)throws ListanDago{
 		Iterator<Hitza> itr = this.getIteradorea();
 		Hitza hitz = null;
-		boolean aurkitua = false;
 		
-		if(this.lista.size()<4){
-			while(itr.hasNext() && !aurkitua){
-				hitz = itr.next();
+		while(itr.hasNext()){
+			hitz = itr.next();
 			
-				if(hitz.izenBeraDu(pHitza)){
-					aurkitua = true;
-				}
+			if(hitz.izenBeraDu(pHitza)){
+				throw(new ListanDago());
 			}
-		
-			if(!aurkitua){
-				this.lista.add(pHitza);
-			}
-			else{
-				System.out.println("Hitza bazegoen listan");
-			}
-		}
-		else{
-			System.out.println("Lau hitz daude jada");
-		}
+		}	
+		this.lista.add(pHitza);
 	}
-	
-	/*public Ondorio bilatuOndorio(String pIzena){ //zer egiten du?
-		//TODO
-	}*/
 	
 	public Ondorio zerEsanDu(String pHitz){
 		//TODO
@@ -106,6 +90,10 @@ public class ListaHitzak {
 			}
 		}
 		return this.lista.size()-kont;
+	}
+	
+	public int sizea(){
+		return this.lista.size();
 	}
 }
 

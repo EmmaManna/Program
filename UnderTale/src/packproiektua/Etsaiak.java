@@ -29,8 +29,13 @@ public class Etsaiak extends Pertsonaiak {
 		//TODO
 	}
 	
-	public void gehituHitza(Hitza pHitza){
-		this.hitzLista.gehituHitza(pHitza);
+	public void gehituHitza(Hitza pHitza)throws ListanDago, ElementuGehiegi{
+		if(this.hitzLista.sizea()<4){
+			this.hitzLista.gehituHitza(pHitza);
+		}
+		else{
+			throw(new ElementuGehiegi());
+		}
 	}
 	
 	public boolean izenBeraDu(Etsaiak pEtsaia){

@@ -26,9 +26,8 @@ public class ListaPertsonaiak {
 	}
 	
 	//Metodoak
-	public void PertsonaiaGehitu(Pertsonaiak pPertsonaiak){
+	public void PertsonaiaGehitu(Pertsonaiak pPertsonaiak)throws ListanDago{
 		Iterator<Pertsonaiak> itr = this.getIteradorea();
-		boolean aurkitua = false;
 		Pertsonaiak pertsonai = null;
 		
 		boolean etsaia = false;
@@ -38,29 +37,23 @@ public class ListaPertsonaiak {
 		}
 		
 		
-		while(itr.hasNext() && !aurkitua){
+		while(itr.hasNext()){
 			pertsonai = itr.next();
 			
 			if(pertsonai instanceof Etsaiak && etsaia){
 				if(((Etsaiak) pertsonai).izenBeraDu((Etsaiak) pPertsonaiak)){
-					aurkitua = true;
+					throw(new ListanDago());
 				}
 			}
 			else{
 				if(pertsonai instanceof Npc && !etsaia){
 					if(((Npc)pertsonai).izenBeraDu((Npc)pPertsonaiak)){
-						aurkitua = true;
+						throw(new ListanDago());
 					}
 				}
 			}
 		}
 		
-		if(!aurkitua){
-			this.lista.add(pPertsonaiak);
-		}
-		else{
-			System.out.println("Pertsonaia listan dago jada");
-		}
-		
+		this.lista.add(pPertsonaiak);
 	}
 }

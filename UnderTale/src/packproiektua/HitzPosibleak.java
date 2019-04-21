@@ -19,7 +19,7 @@ public class HitzPosibleak {
 	}
 	
 	//Metodoak
-	public void gehituHitza(Hitza pHitza){
+	public void gehituHitza(Hitza pHitza)throws ListanDago{
 		this.lista.gehituHitza(pHitza);
 	}
 
