@@ -25,12 +25,10 @@ public class Hitza {
 	}
 	
 	public String getIzena(){
-		//TODO
 		return this.izena;
 	}
 	
 	public Ondorio getEfektua(){
-		//TODO
 		return this.efektua;
 	}
 	
@@ -40,7 +38,9 @@ public class Hitza {
 	}
 	
 	public void inprimatuIzena(){
-		System.out.println(this.izena);
+		if(!this.izena.equals("-")){
+			System.out.println(this.izena);
+		}
 	}
 	
 	public int ondorioaEgikaratu(){

@@ -94,7 +94,18 @@ public class ListaHitzak {
 	}
 	
 	public int tamaina(){
-		return this.lista.size();
+		Iterator<Hitza> itr = this.getIteradorea();
+		int kont = 0;
+		Hitza hitz = null;
+		
+		while(itr.hasNext()){
+			hitz = itr.next();
+		
+			if(hitz.getIzena().equals("-")){
+				kont = kont+1;
+			}
+		}
+		return this.lista.size()-kont;
 	}
 }
 
