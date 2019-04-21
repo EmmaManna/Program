@@ -146,7 +146,7 @@ public class Egoera {
 	public boolean npcDa(){
 		boolean npc = false;
 		
-		if(!this.npc.izena.equals("-")){
+		if(!this.npc.izena.equals("-")||(this.npc.izena.equals("-")&&this.etsaia.izena.equals("-"))){
 			npc = true;
 		}
 		return npc;

@@ -287,39 +287,47 @@ public class Jokalaria {
 				etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
 			}
 			else{
-				npc = new Npc(0,0,"-","-");
-				eraso = new Erasoa(izenaEraso,mina,hutsa);
-				etsaia = new Etsaiak(ps,erasoa,izena,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
+				if(etsaiaDa){
+					npc = new Npc(0,0,"-","-");
+					eraso = new Erasoa(izenaEraso,mina,hutsa);
+					etsaia = new Etsaiak(ps,erasoa,izena,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
 				
-				ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
+					ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
 				
-				ondorio1 = new Ondorio(deskOndorio1, psOn1, erasoOn1, karismaOn1);
-				ondorio2 = new Ondorio(deskOndorio2, psOn2, erasoOn2, karismaOn2);
-				ondorio3 = new Ondorio(deskOndorio3, psOn3, erasoOn3, karismaOn3);
-				ondorio4 = new Ondorio(deskOndorio4, psOn4, erasoOn4, karismaOn4);
+					ondorio1 = new Ondorio(deskOndorio1, psOn1, erasoOn1, karismaOn1);
+					ondorio2 = new Ondorio(deskOndorio2, psOn2, erasoOn2, karismaOn2);
+					ondorio3 = new Ondorio(deskOndorio3, psOn3, erasoOn3, karismaOn3);
+					ondorio4 = new Ondorio(deskOndorio4, psOn4, erasoOn4, karismaOn4);
 				
-				hitz1 = new Hitza(izenaHitz1,ondorioH1,ondorio1);
-				hitz2 = new Hitza(izenaHitz2,ondorioH2,ondorio2);
-				hitz3 = new Hitza(izenaHitz3,ondorioH3,ondorio3);
-				hitz4 = new Hitza(izenaHitz4,ondorioH4,ondorio4);
+					hitz1 = new Hitza(izenaHitz1,ondorioH1,ondorio1);
+					hitz2 = new Hitza(izenaHitz2,ondorioH2,ondorio2);
+					hitz3 = new Hitza(izenaHitz3,ondorioH3,ondorio3);
+					hitz4 = new Hitza(izenaHitz4,ondorioH4,ondorio4);
 				
-				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz1);
-				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz2);
-				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz3);
-				HitzPosibleak.getHitzPosibleak().gehituHitza(hitz4);
+					HitzPosibleak.getHitzPosibleak().gehituHitza(hitz1);
+					HitzPosibleak.getHitzPosibleak().gehituHitza(hitz2);
+					HitzPosibleak.getHitzPosibleak().gehituHitza(hitz3);
+					HitzPosibleak.getHitzPosibleak().gehituHitza(hitz4);
 				
-				etsaia.gehituHitza(hitz4);
-				etsaia.gehituHitza(hitz3);
-				etsaia.gehituHitza(hitz2);
-				etsaia.gehituHitza(hitz1);
+					etsaia.gehituHitza(hitz4);
+					etsaia.gehituHitza(hitz3);
+					etsaia.gehituHitza(hitz2);
+					etsaia.gehituHitza(hitz1);
 				
-				ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(etsaia);
+					ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(etsaia);
+				}
+				else{
+					eraso = new Erasoa("-",0,-1);
+					etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
+					npc = new Npc(0,0,"-","-");
+				}
 			}
 			
 			
 			egoera = new Egoera(hurrengoEgoera1,hurrengoEgoera2,etsaia,npc,deskribapena1, deskribapena2, deskribapena3);
 			ListaEgoerak.getListaEgoerak().gehituEgoera(egoera);
 		}
+			
 			
 	}
 	
