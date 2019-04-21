@@ -7,6 +7,7 @@ import java.net.URL;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
+import java.lang.NumberFormatException;
 
 
 public class Jokalaria {
@@ -145,7 +146,19 @@ public class Jokalaria {
 				if(!hilda){
 					if(egungoEgoera.deskDago3()){
 						egungoEgoera.inprimatuDesk3();
-						egungoEgoera = this.aukeratu(egungoEgoera);
+						
+						//Hirugarren egoera bada, kasu berezia bidean
+						if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
+							if(egungoEgoera.hilDaEtsaia()){
+								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
+							}
+							else{
+								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera1());
+							}
+						}
+						else{
+							egungoEgoera = this.aukeratu(egungoEgoera);
+						}
 					}
 				
 					amaitu = this.partidaJarraitu();
@@ -171,10 +184,23 @@ public class Jokalaria {
 	
 	public void partidaHaiseratu(){
 		//Istorioa hasieratu
+		boolean fitxOndo = false;
+		String izena = "fitxategiak/UndertaleStory.txt";
+		InputStreamReader in = null;
 		String[] zatiak= new String[40];
-		InputStream fitx = this.getClass().getClassLoader().getResourceAsStream("fitxategiak/UndertaleStory.txt");
-		InputStreamReader in= new InputStreamReader(fitx);
 		
+		while(!fitxOndo){
+			try{
+				InputStream fitx = this.getClass().getClassLoader().getResourceAsStream(izena);
+				in = new InputStreamReader(fitx);
+				fitxOndo = true;
+			}
+			catch(NullPointerException e){
+				System.out.println("Fitxategiaren izena txarto dago");
+				izena = Teklatua.getTeklatua().irakurriString("Sartu berriz direktorioa eta izena mesedez");
+			}
+		}
+
 		Scanner sc; 
 		sc = new Scanner(in);
 		String istorioa = sc.nextLine();
@@ -212,7 +238,7 @@ public class Jokalaria {
 			int ps = Integer.parseInt(ps1);
 			String erasoa1 = zatiak[8];
 			int erasoa = Integer.parseInt(erasoa1);
-			String izena = zatiak[9];
+			String izenaP = zatiak[9];
 			String mota = zatiak[10];
 			
 			//Etsaia
@@ -281,7 +307,7 @@ public class Jokalaria {
 			
 			
 			if(npcDa){
-				npc = new Npc(ps,erasoa,izena,mota);
+				npc = new Npc(ps,erasoa,izenaP,mota);
 				ListaPertsonaiak.getListaPertsonaiak().PertsonaiaGehitu(npc);
 				eraso = new Erasoa("-",0,-1);
 				etsaia = new Etsaiak(0,0,"-",eraso,"-","-",false,false);
@@ -290,7 +316,7 @@ public class Jokalaria {
 				if(etsaiaDa){
 					npc = new Npc(0,0,"-","-");
 					eraso = new Erasoa(izenaEraso,mina,hutsa);
-					etsaia = new Etsaiak(ps,erasoa,izena,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
+					etsaia = new Etsaiak(ps,erasoa,izenaP,eraso,mota,deskribapenaEtsai,lagunaDa,bossDa);
 				
 					ErasoPosibleak.getErasoPosibleak().gehituErasoa(eraso);
 				
@@ -365,14 +391,6 @@ public class Jokalaria {
 		}while(!ondo);
 		
 		return aukera;
-	}
-	
-	/*public void etsaiekinTopatu(){
-		//TODO
-	}*/
-	
-	public void borrokaPantaila(){
-		//TODO
 	}
 	
 	public int erasoEgin(int pErasoa){
