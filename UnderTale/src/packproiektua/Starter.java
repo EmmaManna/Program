@@ -104,6 +104,8 @@ public class Starter extends Pertsonaiak {
 			positibo = true;
 		}
 		
+		pOndorio.imprimatuDesk();
+		
 		if(pOndorio.erasoa()){
 			this.erasoa = this.erasoa + pEfektua;
 			if(positibo){

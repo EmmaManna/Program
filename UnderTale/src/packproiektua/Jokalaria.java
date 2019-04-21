@@ -137,6 +137,7 @@ public class Jokalaria {
 				}
 			
 				if(!egungoEgoera.npcDa()){
+					egungoEgoera.etsaiarenDeskribapena();
 					this.zerEgin(egungoEgoera);
 				}
 			

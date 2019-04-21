@@ -68,4 +68,7 @@ public class Ondorio {
 		return erasoa;
 	}
 
+	public void imprimatuDesk(){
+		System.out.println(this.deskribapena);
+	}
 }

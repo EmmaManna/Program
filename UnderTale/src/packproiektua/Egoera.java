@@ -151,4 +151,8 @@ public class Egoera {
 		}
 		return npc;
 	}
+	
+	public void etsaiarenDeskribapena(){
+		this.etsaia.deskripzioaEman();
+	}
 }
