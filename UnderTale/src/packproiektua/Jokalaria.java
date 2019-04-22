@@ -40,6 +40,8 @@ public class Jokalaria {
 	
 	//Metodoak
 	public void partidaJokatu(){
+		Jokalaria.getJokalaria().partidaHaiseratu();
+		
 		//Hasierako egoera, istorioa kontatu
 		Egoera egungoEgoera = null;
 		Pertsonaiak jokalaria = null;
@@ -114,7 +116,7 @@ public class Jokalaria {
 			egungoEgoera.inprimatuDesk3();
 		}
 		
-		egungoEgoera = this.aukeratu(egungoEgoera);
+		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(2);
 		
 		//Partidaren atal nagusia
 		boolean amaitu = false;
@@ -123,32 +125,33 @@ public class Jokalaria {
 		boolean hilda = false;
 		boolean bukatuta = false;
 		
-		while(!amaitu && hilda && !bukatuta){
-			if(egungoEgoera.getHurrengoEgoera1() < 0){
-				bukatuta = true;
+		while(amaitu && !hilda && !bukatuta){
+			if(egungoEgoera.deskDago1()){
+				egungoEgoera.inprimatuDesk1();
 			}
-			else{
-				if(egungoEgoera.deskDago1()){
-					egungoEgoera.inprimatuDesk1();
-				}
 			
-				if(egungoEgoera.deskDago2()){
-					egungoEgoera.inprimatuDesk2();
-				}
+			if(egungoEgoera.deskDago2()){
+				egungoEgoera.inprimatuDesk2();
+			}
 			
-				if(!egungoEgoera.npcDa()){
-					egungoEgoera.etsaiarenDeskribapena();
-					this.zerEgin(egungoEgoera);
-				}
+			if(!egungoEgoera.npcDa()){
+				egungoEgoera.etsaiarenDeskribapena();
+				this.zerEgin(egungoEgoera);
+			}
 			
 			
-				hilda = this.getPertsonaia().hilDa();
+			hilda = this.getPertsonaia().hilDa();
 			
-				if(!hilda){
-					if(egungoEgoera.deskDago3()){
-						egungoEgoera.inprimatuDesk3();
+			if(!hilda){
+				if(egungoEgoera.deskDago3()){
+					egungoEgoera.inprimatuDesk3();
+					
+					if(egungoEgoera.getHurrengoEgoera1() < 0){
+						bukatuta = true;
+					}
+					else{
 						
-						//Hirugarren egoera bada, kasu berezia bidean
+						//28 edo 13 egoera bada, kasu berezia bidean
 						if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
 							if(egungoEgoera.hilDaEtsaia()){
 								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
@@ -160,18 +163,19 @@ public class Jokalaria {
 						else{
 							egungoEgoera = this.aukeratu(egungoEgoera);
 						}
+						
+						amaitu = this.partidaJarraitu();
 					}
-				
-					amaitu = this.partidaJarraitu();
 				}
 			}
+		
 		}
 		
 		if(hilda){
 			System.out.println("Oso ongi borrokatu duzu, baina ez da nahikoa izan. Hurrengorarte lagun <3");
 		}
 		else{
-			if(amaitu){
+			if(!amaitu){
 				System.out.println("Ea noiz bueltatzen zaren! Zure zain egongo gara!");
 			}
 			else{
@@ -204,11 +208,12 @@ public class Jokalaria {
 
 		Scanner sc; 
 		sc = new Scanner(in);
-		String istorioa = sc.nextLine();
-		zatiak = istorioa.split(";");
+		
+		int kont = 0;
 		
 		try{
 			while(sc.hasNextLine()){
+				System.out.println("Kartatutako egoerak: "+kont);
 				Npc npc = null;
 				Etsaiak etsaia = null;
 				Erasoa eraso = null;
@@ -216,8 +221,8 @@ public class Jokalaria {
 				Hitza hitz1, hitz2, hitz3, hitz4 = null;
 				Ondorio ondorio1, ondorio2, ondorio3, ondorio4 = null;
 			
-				String egoerak = sc.nextLine();
-				zatiak= egoerak.split(";");
+				String istorioa = sc.nextLine();
+				zatiak = istorioa.split(";");
 			
 				//Egoerak
 				String hurrengoE1 = zatiak[0];
@@ -433,14 +438,12 @@ public class Jokalaria {
 				catch(ListanDago e){
 					System.out.println("Egoera listan dago jada");
 				}
-				
+			kont = kont+1;
 			}
 		}
 		catch(NumberFormatException e){
 			System.out.println("Sartutako datua ez da zenbakia. Datuak ezin dira kargatu. Konprobatu fitxategia mesedez");
 		}
-			
-			
 	}
 	
 	public void pertsonaiaSortu(){
@@ -455,17 +458,17 @@ public class Jokalaria {
 		do{
 			try{
 				zer = Teklatua.getTeklatua().irakurriString("Zer egin nahi duzu? a edo b");
-				if(!zer.equals("a")|| !zer.equals("b")){
-					throw(new TeklaOkerra());
+				if(zer.equals("a")){
+					aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
+					ondo = true;
 				}
 				else{
-					if(zer.equals("a")){
-						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
-						ondo = true;
-					}
-					else{
+					if(zer.equals("b")){
 						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera2());
 						ondo= true;
+					}
+					else{
+						throw (new TeklaOkerra());
 					}
 				}
 			}
@@ -492,10 +495,12 @@ public class Jokalaria {
 				System.out.println("Azkar!");
 				emandakoa = Teklatua.getTeklatua().irakurriString("Erasotzeko tekla g da. Enter ere sakatu behar da");
 				
-				if(!emandakoa.equals("g")){
+				if(emandakoa.equals("g")){
+					ondo = true;
+				}
+				else{
 					throw(new TeklaOkerra());
 				}
-				ondo = true;
 			}
 			
 			catch(TeklaOkerra e){
@@ -518,13 +523,17 @@ public class Jokalaria {
 			try{
 				System.out.println("Partida jokatzen jarraitu nahi duzu?");
 				zer = Teklatua.getTeklatua().irakurriString("Aukeratu: Bai   Ez");
-				if(!zer.equals("Bai")||!zer.equals("Ez")){
-					throw (new TeklaOkerra());
+				if(zer.equals("Bai")){
+					ondo = true;
+					jarraitu = true;
 				}
 				else{
-					ondo = true;
-					if(zer.equals("Bai")){
-						jarraitu = true;
+					if(zer.equals("Ez")){
+						ondo = true;
+						jarraitu = false;
+					}
+					else{
+						throw (new TeklaOkerra());
 					}
 				}
 			}

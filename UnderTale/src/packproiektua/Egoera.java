@@ -36,7 +36,7 @@ public class Egoera {
 	public boolean beraDa(Egoera pEgoera){
 		boolean bera = false;
 		
-		if(this.deskribapena3.equals(pEgoera.deskribapena3)){
+		if(this.equals(pEgoera)){
 			bera = true;
 		}
 		return bera;

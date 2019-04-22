@@ -25,9 +25,6 @@ public class Etsaiak extends Pertsonaiak {
 		System.out.println(this.deskripzioa);
 	}
 	
-	public void borrokatu(){
-		//TODO
-	}
 	
 	public void gehituHitza(Hitza pHitza)throws ListanDago, ElementuGehiegi{
 		if(this.hitzLista.sizea()<4){

@@ -44,18 +44,21 @@ public class ListaEgoerak {
 		Iterator<Egoera> itr = this.getIteradorea();
 		Egoera egoera = null;
 		int kont = 0;
+		boolean aurkitua = false;
 		
-		if(this.lista.size() < pZenbakia){
+		if(this.lista.size() < pZenbakia-1){
 				System.out.println("Egoera hori ez dago listan");
-			
 		}
 		else{
-			while(pZenbakia <= kont){
+			while(!aurkitua){
 				egoera = itr.next();
+			
+				if(kont == pZenbakia){
+					aurkitua = true;
+				}
 				kont = kont+1;
 			}
 		}
-	
 		
 		return egoera;
 		
@@ -64,7 +67,7 @@ public class ListaEgoerak {
 	public boolean egoeraBereziaDa(Egoera pEgoera){
 		boolean da = false;
 		
-		if(this.lista.indexOf(pEgoera)==28 ){
+		if(this.lista.indexOf(pEgoera)==22 || this.lista.indexOf(pEgoera)==13){
 			da = true;
 		}
 		return da;
