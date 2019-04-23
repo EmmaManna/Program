@@ -27,23 +27,14 @@ public abstract class Pertsonaiak {
 	}
 
 	//Metodoak
-	/*public void borrokatu(){
-		//TODO
-		public boolean aldeEgin(){
-			//TODO
-			 int etsaiarenBizitza
-			if(this.ps>)
-		}
-	}*/
-	
-	/*public boolean aldeEgin(){
-		boolean bool = false;
-		//No entiendo
-		//int etsaiarenBizitza = ListaPertsonaiak.getListaPertsonaiak().
-	}*/
 	
 	public void minaJaso(int pErasoa){
-		this.ps = this.ps-pErasoa;
+		if(this.ps-pErasoa >= 0){
+			this.ps = this.ps-pErasoa;
+		}
+		else{
+			this.ps = 0;
+		}
 	}
 	
 	public void idatziIzena(){

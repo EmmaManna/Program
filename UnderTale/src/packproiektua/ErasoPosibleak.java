@@ -32,14 +32,16 @@ public class ErasoPosibleak {
 		Iterator<Erasoa> itr = this.getIteradorea();
 		Erasoa eraso = null;
 		
-		while(itr.hasNext()){
-			eraso = itr.next();
+		if(!pErasoa.nuluaDa()){
+			while(itr.hasNext()){
+				eraso = itr.next();
 			
-			if(eraso.izenBeraDu(pErasoa)){
-				throw(new ListanDago());
+				if(eraso.izenBeraDu(pErasoa)){
+					throw(new ListanDago());
+				}
 			}
-		}
 		this.lista.add(pErasoa);
+		}
 	}
 	
 	public void inprimatuErasoak(){
@@ -49,7 +51,7 @@ public class ErasoPosibleak {
 		
 		while(itr.hasNext()){
 			eraso = itr.next();
-			System.out.print(kont);
+			System.out.print(kont+"- ");
 			eraso.inprimatuIzena();
 			kont = kont+1;
 		}

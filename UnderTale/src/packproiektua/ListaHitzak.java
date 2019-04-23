@@ -22,17 +22,19 @@ public class ListaHitzak {
 		Iterator<Hitza> itr = this.getIteradorea();
 		Hitza hitz = null;
 		
-		while(itr.hasNext()){
-			hitz = itr.next();
+		if(!pHitza.nuluaDa()){
+			while(itr.hasNext()){
+				hitz = itr.next();
 			
-			if(hitz.izenBeraDu(pHitza)){
-				throw(new ListanDago());
-			}
+				if(hitz.izenBeraDu(pHitza)){
+					throw(new ListanDago());
+				}
 		}	
 		this.lista.add(pHitza);
+		}
 	}
 	
-	public Ondorio zerEsanDu(String pHitz){
+	/*public Ondorio zerEsanDu(String pHitz){
 		//TODO
 		Iterator<Hitza> itr=this.getIteradorea();
 		Hitza hitzBerria; Ondorio emaitza=null;
@@ -43,7 +45,7 @@ public class ListaHitzak {
 			}
 		}
 		return emaitza;
-	}
+	}*/
 	
 	public void inprimatuHitzak(){
 		int kont = 0;
@@ -52,7 +54,7 @@ public class ListaHitzak {
 		
 		while(itr.hasNext()){
 			hitz = itr.next();
-			System.out.println(kont);
+			System.out.print(kont+"- ");
 			hitz.inprimatuIzena();
 			kont = kont+1;
 		}

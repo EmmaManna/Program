@@ -19,7 +19,35 @@ public class Jokalaria {
 	//Eraikitzailea
 	private Jokalaria() {
 		String izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena?");
-		String mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
+		
+		boolean ondo = false;
+		String mota = "-";
+		do{
+			try{
+				mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
+				if(mota.equals("Furro")){
+			
+					ondo = true;
+				}
+				else{
+					if(mota.equals("Influencer")){
+						ondo = true;
+					}
+					else{
+						if(mota.equals("Informatikoa")){
+							ondo = true;
+						}
+						else{
+							throw(new TeklaOkerra());
+					
+						}
+					}
+				}
+			}
+			catch(TeklaOkerra e){
+				System.out.println("Hori ez da mota bat");
+			}
+		}while(!ondo);
 		
 		Erasoa eraso = new Erasoa("-",0,1); //Default luego se cambia
 		this.pertsonaia = new Starter(100,10, izena, eraso, mota, 0, 0);

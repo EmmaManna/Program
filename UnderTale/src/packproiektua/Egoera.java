@@ -53,7 +53,7 @@ public class Egoera {
 				Jokalaria.getJokalaria().getPertsonaia().eraso.inprimatuIzena();
 				System.out.println(" erabili duzu");
 				ps = this.etsaia.ps;
-				System.out.println("Etsaiaren Ps-ak orain" +ps+ " dira.");
+				System.out.println("Etsaiaren Ps-ak orain " +ps+ " dira.");
 			}
 			else{
 				this.etsaia.erasoEgin();

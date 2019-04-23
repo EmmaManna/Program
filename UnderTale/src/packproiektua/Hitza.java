@@ -13,7 +13,16 @@ public class Hitza {
 		this.efektua = pEfektua;
 	}
 	
-	//Metodoak
+	//Metodoak{
+	public boolean nuluaDa(){
+		boolean nulua = false;
+		
+		if(this.izena.equals("-")){
+			nulua = true;
+		}
+		return nulua;
+	}
+	
 	public boolean izenBeraDu(Hitza pHitza){
 		boolean bera = false;
 		

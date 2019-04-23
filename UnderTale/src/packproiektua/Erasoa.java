@@ -21,6 +21,15 @@ public class Erasoa {
 	}
 	
 	//metodoak
+	public boolean nuluaDa(){
+		boolean nulua = false;
+		
+		if(this.izena.equals("-")){
+			nulua = true;
+		}
+		return nulua;
+	}
+	
 	private boolean hutsEgin(){
 		boolean emangoDio = false;
 		Dadoa.getDadoa().bota();
