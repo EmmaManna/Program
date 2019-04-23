@@ -26,7 +26,7 @@ public class Erasoa {
 		Dadoa.getDadoa().bota();
 		int zbk = Dadoa.getDadoa().getGoikoAldea();
 
-		if (this.hutsa!=zbk){
+		if(this.hutsa!=zbk){
 			emangoDio=true;
 		}
 		return emangoDio;

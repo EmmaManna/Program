@@ -22,7 +22,7 @@ public class Jokalaria {
 		String mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
 		
 		Erasoa eraso = new Erasoa("-",0,1); //Default luego se cambia
-		this.pertsonaia = new Starter(100,20, izena, eraso, mota, 0, 0);
+		this.pertsonaia = new Starter(100,10, izena, eraso, mota, 0, 0);
 	}
 
 	//Singleton
@@ -116,7 +116,7 @@ public class Jokalaria {
 			egungoEgoera.inprimatuDesk3();
 		}
 		
-		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(2);
+		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(21);
 		
 		//Partidaren atal nagusia
 		boolean amaitu = false;
@@ -136,7 +136,8 @@ public class Jokalaria {
 			
 			if(!egungoEgoera.npcDa()){
 				egungoEgoera.etsaiarenDeskribapena();
-				this.zerEgin(egungoEgoera);
+				Jokalaria.getJokalaria().zerEgin(egungoEgoera);
+				Jokalaria.getJokalaria().getPertsonaia().karismaHaiseratu();
 			}
 			
 			
@@ -145,30 +146,28 @@ public class Jokalaria {
 			if(!hilda){
 				if(egungoEgoera.deskDago3()){
 					egungoEgoera.inprimatuDesk3();
+				}
 					
-					if(egungoEgoera.getHurrengoEgoera1() < 0){
-						bukatuta = true;
-					}
-					else{
-						
-						//28 edo 13 egoera bada, kasu berezia bidean
-						if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
-							if(egungoEgoera.hilDaEtsaia()){
-								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
-							}
-							else{
-								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera1());
-							}
+				if(egungoEgoera.getHurrengoEgoera1() < 0){
+					bukatuta = true;
+				}
+				else{	
+					//28 edo 13 egoera bada, kasu berezia bidean
+					if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
+						if(egungoEgoera.hilDaEtsaia()){
+							egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
 						}
 						else{
-							egungoEgoera = this.aukeratu(egungoEgoera);
+							egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera1());
 						}
-						
-						amaitu = this.partidaJarraitu();
 					}
+					else{
+						egungoEgoera = this.aukeratu(egungoEgoera);
+					}
+						
+					amaitu = this.partidaJarraitu();
 				}
 			}
-		
 		}
 		
 		if(hilda){
@@ -187,7 +186,7 @@ public class Jokalaria {
 	
 	
 	
-	public void partidaHaiseratu(){
+	public void partidaHaiseratu(){ //FUNCIONA ARREGLAR, METER NULLS EN LISTAS
 		//Istorioa hasieratu
 		boolean fitxOndo = false;
 		String izena = "fitxategiak/UndertaleStory.txt";
@@ -457,18 +456,30 @@ public class Jokalaria {
 		
 		do{
 			try{
-				zer = Teklatua.getTeklatua().irakurriString("Zer egin nahi duzu? a edo b");
-				if(zer.equals("a")){
-					aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
-					ondo = true;
-				}
-				else{
-					if(zer.equals("b")){
-						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera2());
-						ondo= true;
+				if(pEgoera.getHurrengoEgoera1() == pEgoera.getHurrengoEgoera2()){
+					zer = Teklatua.getTeklatua().irakurriString("Sakatu a");
+					if(zer.equals("a")){
+						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
+						ondo = true;
 					}
 					else{
 						throw (new TeklaOkerra());
+					}
+				}
+				else{
+					zer = Teklatua.getTeklatua().irakurriString("Zer egin nahi duzu? a edo b");
+					if(zer.equals("a")){
+						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
+						ondo = true;
+					}
+					else{
+						if(zer.equals("b")){
+							aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera2());
+							ondo= true;
+						}
+						else{
+							throw (new TeklaOkerra());
+						}
 					}
 				}
 			}
@@ -510,6 +521,10 @@ public class Jokalaria {
 		
 		denbora = Kronometroa.getKronometroa().pasaDirenSegunduakLortu();
 		erasoa = (int) (pErasoa - denbora);
+		
+		if(erasoa < 0){
+			erasoa = 0;
+		}
 		
 		return erasoa;
 	}

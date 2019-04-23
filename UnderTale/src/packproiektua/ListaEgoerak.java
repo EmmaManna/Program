@@ -67,7 +67,7 @@ public class ListaEgoerak {
 	public boolean egoeraBereziaDa(Egoera pEgoera){
 		boolean da = false;
 		
-		if(this.lista.indexOf(pEgoera)==22 || this.lista.indexOf(pEgoera)==13){
+		if(this.lista.indexOf(pEgoera)==23 || this.lista.indexOf(pEgoera)==13){
 			da = true;
 		}
 		return da;

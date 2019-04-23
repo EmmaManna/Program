@@ -14,28 +14,55 @@ public class Starter extends Pertsonaiak {
 	
 	
 	//metodoak
-	public boolean aginduaEgin(Egoera pEgoera){
+	public void karismaHaiseratu(){
+		if(karisma >=7){
+			this.karisma = 0;
+		}
+	}
+	
+	public boolean aginduaEgin(Egoera pEgoera){ //FUNCIONA
 		boolean aldeEgin = false;
+		boolean ondo = false;
 		String bidalitakoAgindua="";
+		
+		do{
 		bidalitakoAgindua = Teklatua.getTeklatua().irakurriString("Zer egingo duzu:   MERCY   ACT   FIGHT");
 		
-		switch(bidalitakoAgindua){
-			case "MERCY":
-				aldeEgin = pEgoera.barkamenaEskatu();
-			case "ACT":
-				pEgoera.hitzEgin();
-			case "FIGHT":
-				pEgoera.borroka();
-		}
+			try{
+				if(bidalitakoAgindua.equals("MERCY")){
+					aldeEgin = pEgoera.barkamenaEskatu();
+					ondo = true;
+				}
+				else{
+					if(bidalitakoAgindua.equals("ACT")){
+						pEgoera.hitzEgin();
+						ondo = true;
+					}
+					else{
+						if(bidalitakoAgindua.equals("FIGHT")){
+							pEgoera.borroka();
+							ondo = true;
+						}
+						else{
+							throw(new TeklaOkerra());
+						}
+					}
+				}
+			}
+			catch(TeklaOkerra e){
+				System.out.println("Hori ez da emandako aukera bat. Berriz saiatu");
+			}
+		}while(!ondo);
+		
 		return aldeEgin;
 	}
 	
-	public boolean barkamenaEskatu(Etsaiak pEtsaia){ //MERCY
+	public boolean barkamenaEskatu(Etsaiak pEtsaia){ //MERCY //FUNCIONA
 		boolean barkatuta = false;
 		System.out.println(pEtsaia.izena+"-ren aurrean belaunikatu zara");
 		System.out.println("+ Barkaidazu mesedez, utzidazu nire bidea jarraitzen");
 		
-		if(this.karisma >= 50 || pEtsaia.lagunaDa()){
+		if(this.karisma >= 7 || pEtsaia.lagunaDa()){
 			pEtsaia.lagunEgin();
 			System.out.println("- Ongi da, barkatuta zaude, segi zure bidea.");
 			barkatuta = true;
@@ -48,7 +75,7 @@ public class Starter extends Pertsonaiak {
 
 	}
 	
-	public void hitzEgin(Etsaiak pEtsaia){
+	public void hitzEgin(Etsaiak pEtsaia){ //FUNCIONA, ARREGLAR LISTA
 		boolean ondo = false;
 		int zenb = 0;
 		Hitza hitz = null;
@@ -79,16 +106,13 @@ public class Starter extends Pertsonaiak {
 		
 	}
 	
-	/*public void hautatuErasoak(){
-		//TODO
-	}*/
 	
-	public void erasoEgin(Etsaiak pEtsaia){
+	public void erasoEgin(Etsaiak pEtsaia){ //NO FUNCIONA
 		int eras = 0;
 		
 		if(this.eraso.minEgin()){
 			eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
-			eras = (int) (eras*this.eraso.getMina()*(0.01));
+			eras = (eras*this.eraso.getMina()/(2));
 			pEtsaia.minaJaso(eras);
 		}
 		else{
@@ -98,7 +122,7 @@ public class Starter extends Pertsonaiak {
 		
 	}
 	
-	public void egikaratuOndorioa(int pEfektua, Ondorio pOndorio){
+	public void egikaratuOndorioa(int pEfektua, Ondorio pOndorio){ //FUNCIONA
 		boolean positibo = false;
 		if(pEfektua > 0){
 			positibo = true;

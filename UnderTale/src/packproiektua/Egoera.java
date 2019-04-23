@@ -49,9 +49,9 @@ public class Egoera {
 		
 		while(!amaitu){
 			if(this.bikoitiaDa(txanda)){
+				Jokalaria.getJokalaria().getPertsonaia().erasoEgin(this.etsaia);
 				Jokalaria.getJokalaria().getPertsonaia().eraso.inprimatuIzena();
 				System.out.println(" erabili duzu");
-				Jokalaria.getJokalaria().getPertsonaia().erasoEgin(this.etsaia);
 				ps = this.etsaia.ps;
 				System.out.println("Etsaiaren Ps-ak orain" +ps+ " dira.");
 			}
