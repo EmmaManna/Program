@@ -6,8 +6,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.lang.NumberFormatException;
+
+import java.util.InputMismatchException;
 
 
 public class Jokalaria {
@@ -138,13 +141,16 @@ public class Jokalaria {
 			catch(TeklaOkerra e){
 				System.out.println("Aukeratutako erasoa ez da existitzen...");
 			}
+			catch(InputMismatchException e1){
+				System.out.println("Ez duzu zenbaki bat sartu...");
+			}
 		}
 		
 		if(egungoEgoera.deskDago3()){
 			egungoEgoera.inprimatuDesk3();
 		}
 		
-		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(21);
+		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(2);
 		
 		//Partidaren atal nagusia
 		boolean amaitu = false;
@@ -180,7 +186,7 @@ public class Jokalaria {
 					bukatuta = true;
 				}
 				else{	
-					//28 edo 13 egoera bada, kasu berezia bidean
+					//8 edo 16 egoera bada, kasu berezia bidean
 					if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
 						if(egungoEgoera.hilDaEtsaia()){
 							egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());

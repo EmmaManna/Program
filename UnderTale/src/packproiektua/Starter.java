@@ -87,29 +87,33 @@ public class Starter extends Pertsonaiak {
 		int zenb = 0;
 		Hitza hitz = null;
 		
-		while(!ondo){
-			try{
-				System.out.println("Zer esan nahi duzu?");
-				pEtsaia.inprimatuHitzak();
-				zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina());
-				hitz = pEtsaia.bilatuHitza(zenb);
-				ondo = true;
-			
-			}
-			catch(TeklaOkerra e){
-				System.out.println("Hori ez da emandako aukera bat, berriz saiatu");
-			}
-		}
-		
-		if(hitz.ondorioaDu()){
-			int efektua = hitz.ondorioaEgikaratu();
-			Ondorio ondorio = hitz.getEfektua();
-			this.egikaratuOndorioa(efektua, ondorio);
+		if(pEtsaia.listaTamaina() == 0){
+			System.out.println("Ezin duzu " +pEtsaia.izena+"-rekin hitz egin");
 		}
 		else{
-			System.out.println("Esandakoak ez du inolako eraginik...");
+			while(!ondo){
+				try{
+					System.out.println("Zer esan nahi duzu?");
+					pEtsaia.inprimatuHitzak();
+					zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina());
+					hitz = pEtsaia.bilatuHitza(zenb);
+					ondo = true;
+				
+				}
+				catch(TeklaOkerra e){
+					System.out.println("Hori ez da emandako aukera bat, berriz saiatu");
+				}
+			}
+			
+			if(hitz.ondorioaDu()){
+				int efektua = hitz.ondorioaEgikaratu();
+				Ondorio ondorio = hitz.getEfektua();
+				this.egikaratuOndorioa(efektua, ondorio);
+			}
+			else{
+				System.out.println("Esandakoak ez du inolako eraginik...");
+			}
 		}
-		
 		
 	}
 	
