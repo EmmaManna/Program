@@ -83,4 +83,13 @@ public class Etsaiak extends Pertsonaiak {
 		return lagunaDa;
 	}
 
+	public boolean bossDa(){
+		boolean boss = false;
+		
+		if(this.boss){
+			boss = true;
+		}
+		
+		return boss;
+	}
 }

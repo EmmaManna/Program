@@ -59,18 +59,25 @@ public class Starter extends Pertsonaiak {
 	
 	public boolean barkamenaEskatu(Etsaiak pEtsaia){ //MERCY //FUNCIONA
 		boolean barkatuta = false;
-		System.out.println(pEtsaia.izena+"-ren aurrean belaunikatu zara");
-		System.out.println("+ Barkaidazu mesedez, utzidazu nire bidea jarraitzen");
 		
-		if(this.karisma >= 7 || pEtsaia.lagunaDa()){
-			pEtsaia.lagunEgin();
-			System.out.println("- Ongi da, barkatuta zaude, segi zure bidea.");
-			barkatuta = true;
+		if(pEtsaia.bossDa()){
+			System.out.println(pEtsaia.izena+" Boss bat da, ezin duzu alde egin.");
 		}
 		else{
-			System.out.println("- Kar! Kar! Kar! Ze espero zenuen? Pasatzen uztea ezer egin gabe?");
-			System.out.println("- Kar! Kar! Kar! Momentuz hemen geldituko zara");
+			System.out.println(pEtsaia.izena+"-ren aurrean belaunikatu zara");
+			System.out.println("+ Barkaidazu mesedez, utzidazu nire bidea jarraitzen");
+			
+			if(this.karisma >= 7 || pEtsaia.lagunaDa()){
+				pEtsaia.lagunEgin();
+				System.out.println("- Ongi da, barkatuta zaude, segi zure bidea.");
+				barkatuta = true;
+			}
+			else{
+				System.out.println("- Kar! Kar! Kar! Ze espero zenuen? Pasatzen uztea ezer egin gabe?");
+				System.out.println("- Kar! Kar! Kar! Momentuz hemen geldituko zara");
+			}	
 		}
+		
 		return barkatuta;
 
 	}
