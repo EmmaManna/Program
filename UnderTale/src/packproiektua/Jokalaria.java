@@ -183,8 +183,6 @@ public class Jokalaria {
 				Jokalaria.getJokalaria().getPertsonaia().karismaHaiseratu();
 				if(egungoEgoera.hilDaEtsaia()){
 					Jokalaria.getJokalaria().getPertsonaia().experientziaIgo();
-				}
-				if(egungoEgoera.hilDaEtsaia()){
 					pazifikoa = false;
 				}
 			}
