@@ -1,6 +1,6 @@
 package packproiektua;
 
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class Teklatua {
@@ -28,10 +28,11 @@ public class Teklatua {
 		return this.sc.nextLine();
 	}
 	
-	public int irakurriInt(String pMezua, int pTxikiena, int pHandiena) throws TeklaOkerra, InputMismatchException{
+	public int irakurriInt(String pMezua, int pTxikiena, int pHandiena) throws TeklaOkerra, NumberFormatException{
 		System.out.println(pMezua);
 		int zenb = 0;
-		zenb = this.sc.nextInt();
+		String zer = this.sc.nextLine();
+		zenb = Integer.parseInt(zer);
 		
 		
 		if(zenb > pHandiena || zenb < pTxikiena){

@@ -133,17 +133,18 @@ public class Jokalaria {
 			try{
 				System.out.println("Orain zure erasoa aukeratzeko momentua da! Ondo erabaki, ezin izango duzu aldatu eta!");
 				ErasoPosibleak.getErasoPosibleak().inprimatuErasoak();
-				int erasoZenb = Teklatua.getTeklatua().irakurriInt("Zein da nahi duzun erasoaren zenbakia?", 0, ErasoPosibleak.getErasoPosibleak().tamaina());
+				int erasoZenb = Teklatua.getTeklatua().irakurriInt("Zein da nahi duzun erasoaren zenbakia?", 0, ErasoPosibleak.getErasoPosibleak().tamaina()-1);
 				eraso = ErasoPosibleak.getErasoPosibleak().aukeratuErasoa(erasoZenb);
 				jokalaria.setErasoa(eraso);
 				aukeratuErasoa = true;
 			}
+			catch(NumberFormatException e1){
+				System.out.println("Ez duzu zenbaki bat sartu...");
+			}
 			catch(TeklaOkerra e){
 				System.out.println("Aukeratutako erasoa ez da existitzen...");
 			}
-			catch(InputMismatchException e1){
-				System.out.println("Ez duzu zenbaki bat sartu...");
-			}
+			
 		}
 		
 		if(egungoEgoera.deskDago3()){
