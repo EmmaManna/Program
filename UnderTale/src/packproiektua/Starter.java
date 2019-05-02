@@ -20,6 +20,11 @@ public class Starter extends Pertsonaiak {
 		}
 	}
 	
+	public void experientziaIgo(){
+		this.xp = this.xp+1;
+		System.out.println("Zure experientzia orain "+this.xp+" da.");
+	}
+	
 	public boolean aginduaEgin(Egoera pEgoera){ //FUNCIONA
 		boolean aldeEgin = false;
 		boolean ondo = false;
@@ -117,6 +122,11 @@ public class Starter extends Pertsonaiak {
 				System.out.println("Esandakoak ez du inolako eraginik...");
 			}
 		}
+		System.out.println(" ");
+		pEtsaia.erasoEgin();
+		System.out.println(pEtsaia.eraso.getIzena()+" erabili du!");
+		ps = Jokalaria.getJokalaria().getPertsonaia().ps;
+		System.out.println("Zure Ps-ak " +ps+ " dira.");
 		
 	}
 	

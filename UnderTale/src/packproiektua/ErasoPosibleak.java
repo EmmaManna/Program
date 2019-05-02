@@ -22,6 +22,7 @@ public class ErasoPosibleak {
 		return nireListaErasoak;
 	}
 	
+	
 	//Metodoak
 	private Iterator<Erasoa> getIteradorea(){
 		return this.lista.iterator();

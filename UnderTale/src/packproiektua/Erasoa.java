@@ -20,6 +20,10 @@ public class Erasoa {
 		return this.mina;
 	}
 	
+	public String getIzena(){
+		return this.izena;
+	}
+	
 	//metodoak
 	public boolean nuluaDa(){
 		boolean nulua = false;

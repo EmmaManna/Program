@@ -74,6 +74,9 @@ public class Jokalaria {
 		Jokalaria.getJokalaria().partidaHaiseratu();
 		
 		//Hasierako egoera, istorioa kontatu
+		boolean pazifikoa = true;
+		boolean flowey = false;
+		
 		Egoera egungoEgoera = null;
 		Pertsonaiak jokalaria = null;
 		String erantzuna = "-";
@@ -161,6 +164,11 @@ public class Jokalaria {
 		boolean bukatuta = false;
 		
 		while(amaitu && !hilda && !bukatuta){
+		
+			if(ListaEgoerak.getListaEgoerak().flowey(egungoEgoera)){
+				flowey = true;
+			}
+			
 			if(egungoEgoera.deskDago1()){
 				egungoEgoera.inprimatuDesk1();
 			}
@@ -173,6 +181,12 @@ public class Jokalaria {
 				egungoEgoera.etsaiarenDeskribapena();
 				Jokalaria.getJokalaria().zerEgin(egungoEgoera);
 				Jokalaria.getJokalaria().getPertsonaia().karismaHaiseratu();
+				if(egungoEgoera.hilDaEtsaia()){
+					Jokalaria.getJokalaria().getPertsonaia().experientziaIgo();
+				}
+				if(egungoEgoera.hilDaEtsaia()){
+					pazifikoa = false;
+				}
 			}
 			
 			
@@ -197,10 +211,21 @@ public class Jokalaria {
 						}
 					}
 					else{
-						egungoEgoera = this.aukeratu(egungoEgoera);
+						if(ListaEgoerak.getListaEgoerak().gaztelua(egungoEgoera)){
+							if(pazifikoa){
+								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
+							}
+							else{
+								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera1());
+							}
+						}
+						else{
+							egungoEgoera = this.aukeratu(egungoEgoera);
+						}
 					}
-						
-					amaitu = this.partidaJarraitu();
+					if(!egungoEgoera.npcDa()){
+						amaitu = this.partidaJarraitu();
+					}
 				}
 			}
 		}

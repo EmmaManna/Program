@@ -72,4 +72,23 @@ public class ListaEgoerak {
 		}
 		return da;
 	}
+	public boolean gaztelua(Egoera pEgoera){
+		boolean gaztelua = false;
+		
+		if(this.lista.indexOf(pEgoera)==21){
+			gaztelua = true;
+		}
+		
+		return gaztelua;
+	}
+	
+	public boolean flowey(Egoera pEgoera){
+		boolean flowey = false;
+		
+		if(this.lista.indexOf(pEgoera)==4){
+			flowey = true;
+		}
+		
+		return flowey;
+	}
 }
