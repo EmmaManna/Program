@@ -25,19 +25,27 @@ public class Jokalaria {
 		
 		boolean ondo = false;
 		String mota = "-";
+		int ps = 0;
+		int erasoa = 0;
+		
 		do{
 			try{
 				mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
 				if(mota.equals("Furro")){
-			
+					ps = 100;
+					erasoa = 12;
 					ondo = true;
 				}
 				else{
 					if(mota.equals("Influencer")){
+						ps = 80;
+						erasoa = 8;
 						ondo = true;
 					}
 					else{
 						if(mota.equals("Informatikoa")){
+							ps = 120;
+							erasoa = 9;
 							ondo = true;
 						}
 						else{
@@ -52,8 +60,9 @@ public class Jokalaria {
 			}
 		}while(!ondo);
 		
+		
 		Erasoa eraso = new Erasoa("-",0,1); //Default luego se cambia
-		this.pertsonaia = new Starter(100,10, izena, eraso, mota, 0, 0);
+		this.pertsonaia = new Starter(ps,erasoa, izena, eraso, mota, 0, 0);
 	}
 
 	//Singleton
