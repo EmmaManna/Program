@@ -85,10 +85,20 @@ public class ListaEgoerak {
 	public boolean flowey(Egoera pEgoera){
 		boolean flowey = false;
 		
-		if(this.lista.indexOf(pEgoera)==4){
+		if(this.lista.indexOf(pEgoera)==3){
 			flowey = true;
 		}
 		
 		return flowey;
+	}
+	
+	public boolean bifurk(Egoera pEgoera){
+		boolean bifurk = false;
+		
+		if(this.lista.indexOf(pEgoera)==17){
+			bifurk = true;
+		}
+		
+		return bifurk;
 	}
 }

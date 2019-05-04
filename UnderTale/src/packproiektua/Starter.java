@@ -20,6 +20,10 @@ public class Starter extends Pertsonaiak {
 		}
 	}
 	
+	public int getXp(){
+		return this.xp;
+	}
+	
 	public void experientziaIgo(){
 		this.xp = this.xp+1;
 		System.out.println("Zure experientzia orain "+this.xp+" da.");
@@ -100,7 +104,7 @@ public class Starter extends Pertsonaiak {
 				try{
 					System.out.println("Zer esan nahi duzu?");
 					pEtsaia.inprimatuHitzak();
-					zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina());
+					zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina()-1);
 					hitz = pEtsaia.bilatuHitza(zenb);
 					ondo = true;
 				

@@ -209,7 +209,7 @@ public class Jokalaria {
 				}
 				else{	
 					//8 edo 16 egoera bada, kasu berezia bidean
-					if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera)){
+					if(ListaEgoerak.getListaEgoerak().egoeraBereziaDa(egungoEgoera) &&(!flowey || !(Jokalaria.getJokalaria().pertsonaia.getXp()==3))){
 						if(egungoEgoera.hilDaEtsaia()){
 							egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(egungoEgoera.getHurrengoEgoera2());
 						}
@@ -227,7 +227,12 @@ public class Jokalaria {
 							}
 						}
 						else{
-							egungoEgoera = this.aukeratu(egungoEgoera);
+							if(ListaEgoerak.getListaEgoerak().bifurk(egungoEgoera)&&flowey&&Jokalaria.getJokalaria().pertsonaia.getXp()==3){
+								egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(25);
+							}
+							else{
+								egungoEgoera = this.aukeratu(egungoEgoera);
+							}
 						}
 					}
 					if(!egungoEgoera.npcDa()){
@@ -562,6 +567,7 @@ public class Jokalaria {
 	
 	public int erasoEgin(int pErasoa){
 		String emandakoa = " ";
+		String letra = " ";
 		System.out.println("Eraso egiteko momentua da.");
 		Kronometroa.getKronometroa().zeroanJarri();
 		boolean ondo = false;
@@ -571,9 +577,10 @@ public class Jokalaria {
 		do{
 			try{
 				System.out.println("Azkar!");
-				emandakoa = Teklatua.getTeklatua().irakurriString("Erasotzeko tekla g da. Enter ere sakatu behar da");
+				letra = Dadoa.getDadoa().dadoarenLetra();
+				emandakoa = Teklatua.getTeklatua().irakurriString("Erasotzeko tekla "+letra+  " da. Enter ere sakatu behar da");
 				
-				if(emandakoa.equals("g")){
+				if(emandakoa.equals(letra)){
 					ondo = true;
 				}
 				else{
