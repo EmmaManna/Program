@@ -22,5 +22,9 @@ public class HitzPosibleak {
 	public void gehituHitza(Hitza pHitza)throws ListanDago{
 		this.lista.gehituHitza(pHitza);
 	}
+	
+	public int tamaina(){
+		return this.lista.sizea();
+	}
 
 }

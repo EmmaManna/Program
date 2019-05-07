@@ -40,6 +40,10 @@ public class ListaEgoerak {
 		this.lista.add(pEgoera);
 	}
 	
+	public int tamaina(){
+		return this.lista.size();
+	}
+	
 	public Egoera hurrengoEgoera(int pZenbakia){
 		Iterator<Egoera> itr = this.getIteradorea();
 		Egoera egoera = null;
@@ -100,5 +104,9 @@ public class ListaEgoerak {
 		}
 		
 		return bifurk;
+	}
+	
+	public void reset(){
+		this.lista.clear();
 	}
 }

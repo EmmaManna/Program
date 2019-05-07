@@ -26,6 +26,14 @@ public abstract class Pertsonaiak {
 		this.eraso = pEraso;
 	}
 
+	public int getPs(){
+		return this.ps;
+	}
+	
+	public int getErasoa(){
+		return this.erasoa;
+	}
+	
 	//Metodoak
 	
 	public void minaJaso(int pErasoa){

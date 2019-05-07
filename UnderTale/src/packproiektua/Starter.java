@@ -24,6 +24,10 @@ public class Starter extends Pertsonaiak {
 		return this.xp;
 	}
 	
+	public int getKarisma(){
+		return this.karisma;
+	}
+	
 	public void experientziaIgo(){
 		this.xp = this.xp+1;
 		System.out.println("Zure experientzia orain "+this.xp+" da.");

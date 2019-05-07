@@ -21,6 +21,10 @@ public class Kronometroa {
 	 zeroMomentua = System.currentTimeMillis();
 	}
 	
+	public long hasierakoDenb(){
+		return zeroMomentua;
+	}
+	
 	public int pasaDirenSegunduakLortu(){
 		return (int) (System.currentTimeMillis() - zeroMomentua) / 1000;
 	}
