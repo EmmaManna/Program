@@ -43,17 +43,17 @@ public class Starter extends Pertsonaiak {
 		
 			try{
 				if(bidalitakoAgindua.equals("MERCY")){
-					aldeEgin = pEgoera.barkamenaEskatu();
+					aldeEgin = this.barkamenaEskatu(pEgoera);
 					ondo = true;
 				}
 				else{
 					if(bidalitakoAgindua.equals("ACT")){
-						pEgoera.hitzEgin();
+						this.hitzEgin(pEgoera);
 						ondo = true;
 					}
 					else{
 						if(bidalitakoAgindua.equals("FIGHT")){
-							pEgoera.borroka();
+							this.borroka(pEgoera);
 							ondo = true;
 						}
 						else{
@@ -70,18 +70,19 @@ public class Starter extends Pertsonaiak {
 		return aldeEgin;
 	}
 	
-	public boolean barkamenaEskatu(Etsaiak pEtsaia){ //MERCY //FUNCIONA
+	
+	private boolean barkamenaEskatu(Egoera pEgoera){
 		boolean barkatuta = false;
 		
-		if(pEtsaia.bossDa()){
-			System.out.println(pEtsaia.izena+" Boss bat da, ezin duzu alde egin.");
+		if(pEgoera.bossDa()){
+			System.out.println(pEgoera.etsaiarenIzena()+" Boss bat da, ezin duzu alde egin.");
 		}
 		else{
-			System.out.println(pEtsaia.izena+"-ren aurrean belaunikatu zara");
+			System.out.println(pEgoera.etsaiarenIzena()+"-ren aurrean belaunikatu zara");
 			System.out.println("+ Barkaidazu mesedez, utzidazu nire bidea jarraitzen");
 			
-			if(this.karisma >= 7 || pEtsaia.lagunaDa()){
-				pEtsaia.lagunEgin();
+			if(this.karisma >= 7 || pEgoera.lagunaDa()){
+				pEgoera.lagunEgin();
 				System.out.println("- Ongi da, barkatuta zaude, segi zure bidea.");
 				barkatuta = true;
 			}
@@ -95,21 +96,21 @@ public class Starter extends Pertsonaiak {
 
 	}
 	
-	public void hitzEgin(Etsaiak pEtsaia){ //FUNCIONA, ARREGLAR LISTA
+	private void hitzEgin(Egoera pEgoera){
 		boolean ondo = false;
 		int zenb = 0;
 		Hitza hitz = null;
 		
-		if(pEtsaia.listaTamaina() == 0){
-			System.out.println("Ezin duzu " +pEtsaia.izena+"-rekin hitz egin");
+		if(pEgoera.listaTamaina() == 0){
+			System.out.println("Ezin duzu " +pEgoera.etsaiarenIzena()+"-rekin hitz egin");
 		}
 		else{
 			while(!ondo){
 				try{
 					System.out.println("Zer esan nahi duzu?");
-					pEtsaia.inprimatuHitzak();
-					zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEtsaia.listaTamaina()-1);
-					hitz = pEtsaia.bilatuHitza(zenb);
+					pEgoera.inprimatuHitzak();
+					zenb = Teklatua.getTeklatua().irakurriInt("Sartu zenbakia mezedez", 0, pEgoera.listaTamaina()-1);
+					hitz = pEgoera.bilatuHitza(zenb);
 					ondo = true;
 				
 				}
@@ -131,30 +132,42 @@ public class Starter extends Pertsonaiak {
 			}
 		}
 		System.out.println(" ");
-		pEtsaia.erasoEgin();
-		System.out.println(pEtsaia.eraso.getIzena()+" erabili du!");
+		pEgoera.erasoEgin();
+		System.out.println(pEgoera.erasoarenIzena()+" erabili du!");
 		ps = Jokalaria.getJokalaria().getPertsonaia().ps;
 		System.out.println("Zure Ps-ak " +ps+ " dira.");
 		
 	}
 	
-	
-	public void erasoEgin(Etsaiak pEtsaia){ //NO FUNCIONA
-		int eras = 0;
+	private void borroka(Egoera pEgoera){ //Bikoitia Jokalariaren txanda, bakoitia etsaiarena
+		int txanda = 0;
+		boolean amaitu = false;
 		
-		if(this.eraso.minEgin()){
-			eras = Jokalaria.getJokalaria().erasoEgin(this.erasoa);
-			eras = (eras*this.eraso.getMina()/(2));
-			pEtsaia.minaJaso(eras);
+		while(!amaitu){
+			if(pEgoera.bikoitiaDa(txanda)){
+				pEgoera.etsaiariErasotu();
+			}
+			else{
+				pEgoera.erasoEgin();
+			}
+			
+			if(pEgoera.hilDa()){
+				System.out.println(pEgoera.etsaiarenIzena() + " hil da...");
+				amaitu = true;
+			}
+			else{
+				if(Jokalaria.getJokalaria().getPertsonaia().hilDa()){
+					System.out.println("Oh! Hil zara...");
+					amaitu = true;
+					
+				}
+			}
+			
+			txanda = txanda+1;
 		}
-		else{
-			System.out.println("Erasoak huts egin du!");
-			pEtsaia.minaJaso(eras);
-		}
-		
 	}
 	
-	public void egikaratuOndorioa(int pEfektua, Ondorio pOndorio){ //FUNCIONA
+	private void egikaratuOndorioa(int pEfektua, Ondorio pOndorio){
 		boolean positibo = false;
 		if(pEfektua > 0){
 			positibo = true;

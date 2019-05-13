@@ -42,50 +42,7 @@ public class Egoera {
 		return bera;
 	}
 	
-	public void borroka(){ //Bikoitia Jokalariaren txanda, bakoitia etsaiarena
-		int txanda = 0;
-		boolean amaitu = false;
-		int ps = 0;
-		
-		while(!amaitu){
-			if(this.bikoitiaDa(txanda)){
-				Jokalaria.getJokalaria().getPertsonaia().erasoEgin(this.etsaia);
-				System.out.println(Jokalaria.getJokalaria().getPertsonaia().eraso.getIzena()+" erabili duzu");
-				ps = this.etsaia.ps;
-				System.out.println("Etsaiaren Ps-ak orain " +ps+ " dira.");
-			}
-			else{
-				this.etsaia.erasoEgin();
-				System.out.println(this.etsaia.eraso.getIzena()+" erabili du!");
-				ps = Jokalaria.getJokalaria().getPertsonaia().ps;
-				System.out.println("Zure Ps-ak " +ps+ " dira.");
-			}
-			
-			if(this.etsaia.hilDa()){
-				System.out.println(this.etsaia.izena + " hil da...");
-				amaitu = true;
-			}
-			else{
-				if(Jokalaria.getJokalaria().getPertsonaia().hilDa()){
-					System.out.println("Oh! Hil zara...");
-					amaitu = true;
-					
-				}
-			}
-			
-			txanda = txanda+1;
-		}
-	}
-	
-	public void hitzEgin(){
-		Jokalaria.getJokalaria().getPertsonaia().hitzEgin(this.etsaia);
-	}
-	
-	public boolean barkamenaEskatu(){
-		return Jokalaria.getJokalaria().getPertsonaia().barkamenaEskatu(this.etsaia);
-	}
-	
-	private boolean bikoitiaDa(int pZenb){
+	public boolean bikoitiaDa(int pZenb){
 		boolean bikoitia = false;
 		
 		if(pZenb%2==0){
@@ -154,5 +111,65 @@ public class Egoera {
 		this.etsaia.deskripzioaEman();
 	}
 	
+	public boolean lagunaDa(){
+		return this.etsaia.lagunaDa();
+	}
+	
+	public boolean bossDa(){
+		return this.etsaia.bossDa();
+	}
+	
+	public void lagunEgin(){
+		this.etsaia.lagunEgin();
+	}
+	
+	public String etsaiarenIzena(){
+		return this.etsaia.izena;
+	}
+	
+	public int listaTamaina(){
+		return this.etsaia.listaTamaina();
+	}
+	
+	public void inprimatuHitzak(){
+		this.etsaia.inprimatuHitzak();
+	}
+	
+	public Hitza bilatuHitza(int pZenb){
+		return this.etsaia.bilatuHitza(pZenb);
+	}
+	
+	public void erasoEgin(){
+		this.etsaia.erasoEgin();
+	}
+	
+	public String erasoarenIzena(){
+		return this.etsaia.eraso.getIzena();
+	}
 
+	public boolean hilDa(){
+		return this.etsaia.hilDa();
+	}
+	
+	public int psLortu(){
+		return this.etsaia.ps;
+	}
+	
+	public void etsaiariErasotu(){
+		int eras = 0;
+		int ps = 0;
+		eras = Jokalaria.getJokalaria().erasoEgin(Jokalaria.getJokalaria().getPertsonaia().erasoa);
+		
+		if(Jokalaria.getJokalaria().getPertsonaia().eraso.minEgin()){
+			eras = (eras*Jokalaria.getJokalaria().getPertsonaia().eraso.getMina()/(2));
+			this.etsaia.minaJaso(eras);
+			System.out.println(Jokalaria.getJokalaria().getPertsonaia().eraso.getIzena()+" erabili duzu");
+			ps = this.psLortu();
+			System.out.println("Etsaiaren Ps-ak orain " +ps+ " dira.");
+		}
+		else{
+			System.out.println("Zure erasoak huts egin du!");
+		}
+	}
 }
+

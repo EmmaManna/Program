@@ -79,9 +79,12 @@ public class Jokalaria {
 	}
 	
 	//Metodoak
-	public void partidaJokatu(){
+	public void main(){
 		Jokalaria.getJokalaria().partidaHaiseratu();
-		
+		Jokalaria.getJokalaria().partidaJokatu();
+	}
+	
+	private void partidaJokatu(){
 		//Hasierako egoera, istorioa kontatu
 		boolean pazifikoa = true;
 		boolean flowey = false;
@@ -258,7 +261,7 @@ public class Jokalaria {
 	
 	
 	
-	public void partidaHaiseratu(){ //FUNCIONA ARREGLAR, METER NULLS EN LISTAS
+	private void partidaHaiseratu(){ //FUNCIONA ARREGLAR, METER NULLS EN LISTAS
 		//Istorioa hasieratu
 		boolean fitxOndo = false;
 		String izena = "fitxategiak/UndertaleStory.txt";
@@ -603,7 +606,7 @@ public class Jokalaria {
 		return erasoa;
 	}
 	
-	public boolean partidaJarraitu(){
+	private boolean partidaJarraitu(){
 		boolean jarraitu = false;
 		String zer = "-";
 		boolean ondo = false;

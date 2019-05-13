@@ -46,13 +46,18 @@ public class Etsaiak extends Pertsonaiak {
 	
 	public void erasoEgin(){
 		int mina = 0;
+		int ps = 0;
 		
 		if(this.eraso.minEgin()){
 			mina = (this.erasoa*this.eraso.getMina()/(2));
 			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
+			
+			System.out.println(this.eraso.getIzena()+" erabili du!");
+			ps = Jokalaria.getJokalaria().getPertsonaia().ps;
+			System.out.println("Zure Ps-ak " +ps+ " dira.");
 		}
 		else{
-			System.out.println("Erasoak huts egin du!");
+			System.out.println(this.izena+"-ren erasoak huts egin du!");
 			Jokalaria.getJokalaria().getPertsonaia().minaJaso(mina);
 		}
 	}

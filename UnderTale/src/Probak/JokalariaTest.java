@@ -30,7 +30,7 @@ public class JokalariaTest {
 
 	@Test
 	public void testPartidaJokatu() {
-		Jokalaria.getJokalaria().partidaJokatu();
+		Jokalaria.getJokalaria().main();
 	}
 
 	@Test
