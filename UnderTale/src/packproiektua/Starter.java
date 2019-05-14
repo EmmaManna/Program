@@ -133,9 +133,6 @@ public class Starter extends Pertsonaiak {
 		}
 		System.out.println(" ");
 		pEgoera.erasoEgin();
-		System.out.println(pEgoera.erasoarenIzena()+" erabili du!");
-		ps = Jokalaria.getJokalaria().getPertsonaia().ps;
-		System.out.println("Zure Ps-ak " +ps+ " dira.");
 		
 	}
 	

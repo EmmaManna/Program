@@ -34,19 +34,6 @@ public class ListaHitzak {
 		}
 	}
 	
-	/*public Ondorio zerEsanDu(String pHitz){
-		//TODO
-		Iterator<Hitza> itr=this.getIteradorea();
-		Hitza hitzBerria; Ondorio emaitza=null;
-		while (itr.hasNext()){
-			hitzBerria=itr.next();
-			if(hitzBerria.getIzena()==pHitz){
-				emaitza=hitzBerria.getEfektua();
-			}
-		}
-		return emaitza;
-	}*/
-	
 	public void inprimatuHitzak(){
 		int kont = 0;
 		Iterator<Hitza> itr = this.getIteradorea();

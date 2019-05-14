@@ -40,6 +40,32 @@ public class Teklatua {
 		}
 		return zenb;
 	}
+	
+	public String baiEzIrakurri() throws TeklaOkerra{
+		String erantzuna = " ";
+		
+		erantzuna = Teklatua.getTeklatua().irakurriString("Aukeratu: Bai   Ez");
+		if(!erantzuna.equals("Bai")){
+			if(!erantzuna.equals("Ez")){
+				throw (new TeklaOkerra());
+			}
+		}
+		
+		return erantzuna;
+	}
+	
+	public String abIrakurri() throws TeklaOkerra{
+		String erantzuna = " ";
+		
+		erantzuna = Teklatua.getTeklatua().irakurriString("Zer egin nahi duzu? a edo b");
+		if(!erantzuna.equals("a")){
+			if(!erantzuna.equals("b")){
+				throw (new TeklaOkerra());
+			}
+		}
+		
+		return erantzuna;
+	}
 }
 
 

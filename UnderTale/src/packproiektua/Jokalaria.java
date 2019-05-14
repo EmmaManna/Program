@@ -61,7 +61,7 @@ public class Jokalaria {
 		}while(!ondo);
 		
 		
-		Erasoa eraso = new Erasoa("-",0,1); //Default luego se cambia
+		Erasoa eraso = new Erasoa("-",0,1); //Default mota aukeratzean aldatzen da
 		this.pertsonaia = new Starter(ps,erasoa, izena, eraso, mota, 0, 0);
 	}
 
@@ -95,6 +95,8 @@ public class Jokalaria {
 		
 		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(0);
 		
+		System.out.println(" "); //Pantailaratzekoan hobeto desberdintzeko
+		
 		if(egungoEgoera.deskDago1()){
 			egungoEgoera.inprimatuDesk1();
 		}
@@ -107,6 +109,9 @@ public class Jokalaria {
 		
 		//Hasten da jokoa
 		egungoEgoera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(1);
+		
+		System.out.println(" "); //Pantailaratzekoan hobeto desberdintzeko
+		
 		if(egungoEgoera.deskDago1()){
 			egungoEgoera.inprimatuDesk1();
 		}
@@ -122,19 +127,14 @@ public class Jokalaria {
 				System.out.println("Oh! Izen aukera ona... orduan " + jokalaria.izena + " da zure izena?");
 				System.out.println("Ondo,ondo... izen polita, " + jokalaria.izena+ " ezta?");
 				System.out.println("Mmmmm... berriro galdetuko dizut, " +jokalaria.izena+ " izena gustoko duzu?");
-				erantzuna = Teklatua.getTeklatua().irakurriString("Aukeratu: Bai   Ez");
+				erantzuna = Teklatua.getTeklatua().baiEzIrakurri();
 		
 				if(erantzuna.equals("Ez")){
 					String izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena?");
 					jokalaria.setIzenaAldatu(izena);
 				}
 				else{
-					if(erantzuna.equals("Bai")){
-						aukeratuIzena = true;
-					}
-					else{
-						throw(new TeklaOkerra());
-					}
+					aukeratuIzena = true;
 				}
 			}
 			catch(TeklaOkerra e){
@@ -176,7 +176,9 @@ public class Jokalaria {
 		boolean bukatuta = false;
 		
 		while(amaitu && !hilda && !bukatuta){
-		
+			
+			System.out.println(" "); //Pantailaratzekoan hobeto desberdintzeko
+			
 			if(ListaEgoerak.getListaEgoerak().flowey(egungoEgoera)){
 				flowey = true;
 			}
@@ -524,7 +526,7 @@ public class Jokalaria {
 		Jokalaria.getJokalaria();
 	}
 	
-	public Egoera aukeratu(Egoera pEgoera){ //Bidean eskuina edo ezkerra aukeratu
+	private Egoera aukeratu(Egoera pEgoera){ //Bidean eskuina edo ezkerra aukeratu
 		String zer = "-";
 		boolean ondo = false;
 		Egoera aukera = null;
@@ -542,19 +544,15 @@ public class Jokalaria {
 					}
 				}
 				else{
-					zer = Teklatua.getTeklatua().irakurriString("Zer egin nahi duzu? a edo b");
+					zer = Teklatua.getTeklatua().abIrakurri();
 					if(zer.equals("a")){
 						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera1());
 						ondo = true;
 					}
 					else{
-						if(zer.equals("b")){
-							aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera2());
-							ondo= true;
-						}
-						else{
-							throw (new TeklaOkerra());
-						}
+						aukera = ListaEgoerak.getListaEgoerak().hurrengoEgoera(pEgoera.getHurrengoEgoera2());
+						ondo= true;
+						
 					}
 				}
 			}
@@ -571,6 +569,8 @@ public class Jokalaria {
 	public int erasoEgin(int pErasoa){
 		String emandakoa = " ";
 		String letra = " ";
+		System.out.println(" ");
+		System.out.println("**********************************************************************************");
 		System.out.println("Eraso egiteko momentua da.");
 		Kronometroa.getKronometroa().zeroanJarri();
 		boolean ondo = false;
@@ -614,19 +614,13 @@ public class Jokalaria {
 		while(!ondo){
 			try{
 				System.out.println("Partida jokatzen jarraitu nahi duzu?");
-				zer = Teklatua.getTeklatua().irakurriString("Aukeratu: Bai   Ez");
+				zer = Teklatua.getTeklatua().baiEzIrakurri();
+				ondo = true;
 				if(zer.equals("Bai")){
-					ondo = true;
 					jarraitu = true;
 				}
 				else{
-					if(zer.equals("Ez")){
-						ondo = true;
-						jarraitu = false;
-					}
-					else{
-						throw (new TeklaOkerra());
-					}
+					jarraitu = false;
 				}
 			}
 			catch(TeklaOkerra e){

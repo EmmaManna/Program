@@ -53,6 +53,7 @@ public class ListaEgoerak {
 		if(this.lista.size() < pZenbakia-1){
 				System.out.println("Egoera hori ez dago listan");
 		}
+		
 		else{
 			while(!aurkitua){
 				egoera = itr.next();
@@ -76,6 +77,7 @@ public class ListaEgoerak {
 		}
 		return da;
 	}
+	
 	public boolean gaztelua(Egoera pEgoera){
 		boolean gaztelua = false;
 		
