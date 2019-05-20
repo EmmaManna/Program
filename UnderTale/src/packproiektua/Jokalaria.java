@@ -28,7 +28,7 @@ public class Jokalaria {
 		int ps = 0;
 		int erasoa = 0;
 		
-		do{
+		while(!ondo){
 			try{
 				mota = Teklatua.getTeklatua().irakurriString("Zein motatakoa zara?  Furro,  Influencer,  Informatikoa");
 				if(mota.equals("Furro")){
@@ -36,14 +36,12 @@ public class Jokalaria {
 					erasoa = 12;
 					ondo = true;
 				}
-				else{
-					if(mota.equals("Influencer")){
+				else if(mota.equals("Influencer")){
 						ps = 80;
 						erasoa = 8;
 						ondo = true;
 					}
-					else{
-						if(mota.equals("Informatikoa")){
+					else if(mota.equals("Informatikoa")){
 							ps = 120;
 							erasoa = 9;
 							ondo = true;
@@ -52,13 +50,12 @@ public class Jokalaria {
 							throw(new TeklaOkerra());
 					
 						}
-					}
-				}
 			}
+			
 			catch(TeklaOkerra e){
 				System.out.println("Hori ez da mota bat");
 			}
-		}while(!ondo);
+		}
 		
 		
 		Erasoa eraso = new Erasoa("-",0,1); //Default mota aukeratzean aldatzen da
@@ -250,13 +247,11 @@ public class Jokalaria {
 		if(hilda){
 			System.out.println("Oso ongi borrokatu duzu, baina ez da nahikoa izan. Hurrengorarte lagun <3");
 		}
-		else{
-			if(!amaitu){
+		else if(!amaitu){
 				System.out.println("Ea noiz bueltatzen zaren! Zure zain egongo gara!");
-			}
-			else{
-				System.out.println("Zorionak! Amaierara heldu zara, jokoa amaitu da");
-			}
+		}
+		else{
+			System.out.println("Zorionak! Amaierara heldu zara, jokoa amaitu da");
 		}
 	}
 	

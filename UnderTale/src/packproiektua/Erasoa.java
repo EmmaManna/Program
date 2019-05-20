@@ -26,12 +26,7 @@ public class Erasoa {
 	
 	//metodoak
 	public boolean nuluaDa(){
-		boolean nulua = false;
-		
-		if(this.izena.equals("-")){
-			nulua = true;
-		}
-		return nulua;
+		return this.izena.equals("-");
 	}
 	
 	private boolean hutsEgin(){
@@ -50,13 +45,7 @@ public class Erasoa {
 	}
 	
 	public boolean izenBeraDu(Erasoa pEraso){
-		boolean bera = false;
-		
-		if(this.izena.equals(pEraso.izena)){
-			bera = true;
-		}
-		
-		return bera;
+		return this.izena.equals(pEraso.izena);
 	}
 	
 	public void inprimatuIzena(){

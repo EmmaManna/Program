@@ -27,21 +27,15 @@ public class Etsaiak extends Pertsonaiak {
 	
 	
 	public void gehituHitza(Hitza pHitza)throws ListanDago, ElementuGehiegi{
-		if(this.hitzLista.sizea()<4){
-			this.hitzLista.gehituHitza(pHitza);
-		}
-		else{
+		if(this.hitzLista.sizea()>3){
 			throw(new ElementuGehiegi());
 		}
+		
+		this.hitzLista.gehituHitza(pHitza);
 	}
 	
 	public boolean izenBeraDu(Etsaiak pEtsaia){
-		boolean bera = false;
-		
-		if(this.izena.equals(pEtsaia.izena)){
-			bera = true;
-		}
-		return bera;
+		return this.izena.equals(pEtsaia.izena);
 	}
 	
 	public void erasoEgin(){
@@ -79,22 +73,10 @@ public class Etsaiak extends Pertsonaiak {
 	}
 	
 	public boolean lagunaDa(){
-		boolean lagunaDa = false;
-		
-		if(this.laguna){
-			lagunaDa = true;
-		}
-		
-		return lagunaDa;
+		return this.laguna;
 	}
 
 	public boolean bossDa(){
-		boolean boss = false;
-		
-		if(this.boss){
-			boss = true;
-		}
-		
-		return boss;
+		return this.boss;
 	}
 }

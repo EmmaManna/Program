@@ -34,12 +34,7 @@ public class Egoera {
 	
 	//Gainontzeko metodoak
 	public boolean beraDa(Egoera pEgoera){
-		boolean bera = false;
-		
-		if(this.equals(pEgoera)){
-			bera = true;
-		}
-		return bera;
+		return this.equals(pEgoera);
 	}
 	
 	public boolean bikoitiaDa(int pZenb){
@@ -64,38 +59,19 @@ public class Egoera {
 	}
 	
 	public boolean deskDago1(){
-		boolean dago = true;
-		
-		if(this.deskribapena1.equals("-")){
-			dago = false;
-		}
-		return dago;
+		return !this.deskribapena1.equals("-");
 	}
 	
 	public boolean deskDago2(){
-		boolean dago = true;
-		
-		if(this.deskribapena2.equals("-")){
-			dago = false;
-		}
-		return dago;
+		return !this.deskribapena2.equals("-");
 	}
 	
 	public boolean deskDago3(){
-		boolean dago = true;
-		
-		if(this.deskribapena3.equals("-")){
-			dago = false;
-		}
-		return dago;
+		return !this.deskribapena3.equals("-");
 	}
 	
 	public boolean hilDaEtsaia(){
-		boolean hilda = false;
-		if(this.etsaia.hilDa()){
-			hilda = true;
-		}
-		return hilda;
+		return this.etsaia.hilDa();
 	}
 	
 	public boolean npcDa(){

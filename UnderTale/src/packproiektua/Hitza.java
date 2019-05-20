@@ -15,22 +15,11 @@ public class Hitza {
 	
 	//Metodoak{
 	public boolean nuluaDa(){
-		boolean nulua = false;
-		
-		if(this.izena.equals("-")){
-			nulua = true;
-		}
-		return nulua;
+		return this.izena.equals("-");
 	}
 	
 	public boolean izenBeraDu(Hitza pHitza){
-		boolean bera = false;
-		
-		if(this.izena.equals(pHitza.izena)){
-			bera = true;
-		}
-		
-		return bera;
+		return this.izena.equals(pHitza.izena);
 	}
 	
 	public String getIzena(){
@@ -53,10 +42,7 @@ public class Hitza {
 	}
 	
 	public int ondorioaEgikaratu(){
-		int efektua = 0;
-		efektua = this.efektua.ondorioaEragin();
-		
-		return efektua;
+		return this.efektua.ondorioaEragin();
 	}
 
 }

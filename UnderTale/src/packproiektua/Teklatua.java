@@ -34,7 +34,6 @@ public class Teklatua {
 		String zer = this.sc.nextLine();
 		zenb = Integer.parseInt(zer);
 		
-		
 		if(zenb > pHandiena || zenb < pTxikiena){
 			throw (new TeklaOkerra());
 		}

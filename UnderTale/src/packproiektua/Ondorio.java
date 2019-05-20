@@ -24,48 +24,26 @@ public class Ondorio {
 			ondorioa = this.erasoaIgoJaitsi;
 					
 		}
-		else{
-			if(this.karisma()){
+		else if(this.karisma()){
 				ondorioa = this.karismaIgoJaitsi;
-			}
-			else{
-				if(this.ps()){
-					ondorioa = this.psIgoJaitsi;
-				}
-			}
 		}
-		
+		else if(this.ps()){
+			ondorioa = this.psIgoJaitsi;
+		}
+	
 		return ondorioa;
 	}
 	
 	public boolean ps(){
-		boolean ps = false;
-		
-		if(this.psIgoJaitsi != 0){
-			ps = true;
-		}
-		
-		return ps;
+		return this.psIgoJaitsi != 0;
 	}
 	
 	public boolean karisma(){
-		boolean karisma = false;
-		
-		if(this.karismaIgoJaitsi != 0){
-			karisma = true;
-		}
-		
-		return karisma;
+		return this.karismaIgoJaitsi != 0;
 	}
 	
 	public boolean erasoa(){
-		boolean erasoa = false;
-		
-		if(this.erasoaIgoJaitsi != 0){
-			erasoa = true;
-		}
-		
-		return erasoa;
+		return this.erasoaIgoJaitsi != 0;
 	}
 
 	public void imprimatuDesk(){
