@@ -122,10 +122,6 @@ public class Egoera {
 	public String erasoarenIzena(){
 		return this.etsaia.eraso.getIzena();
 	}
-
-	public boolean hilDa(){
-		return this.etsaia.hilDa();
-	}
 	
 	public int psLortu(){
 		return this.etsaia.ps;

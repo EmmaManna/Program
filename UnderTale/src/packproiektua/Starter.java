@@ -148,7 +148,7 @@ public class Starter extends Pertsonaiak {
 				pEgoera.erasoEgin();
 			}
 			
-			if(pEgoera.hilDa()){
+			if(pEgoera.hilDaEtsaia()){
 				System.out.println(pEgoera.etsaiarenIzena() + " hil da...");
 				amaitu = true;
 			}
