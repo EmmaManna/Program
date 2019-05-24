@@ -300,7 +300,7 @@ public class Jokalaria {
 				int hurrengoEgoera1 = Integer.parseInt(hurrengoE1);
 				String hurrengoE2 = zatiak[1];
 				int hurrengoEgoera2 = Integer.parseInt(hurrengoE2);
-			
+				
 				//Pertsonaiak
 				String etsaia1 = zatiak[2];
 				boolean etsaiaDa = Boolean.parseBoolean(etsaia1);
@@ -626,7 +626,7 @@ public class Jokalaria {
 		return jarraitu;
 	}
 	
-	public void zerEgin(Egoera pEgoera){
+	private void zerEgin(Egoera pEgoera){
 		boolean hilDaS = false;
 		boolean hilDaE = false;
 		boolean aldeEgin = false;
