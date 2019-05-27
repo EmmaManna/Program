@@ -76,7 +76,7 @@ public class Jokalaria {
 	}
 	
 	//Metodoak
-	public void main(){
+	public static void main(String[] args){
 		Jokalaria.getJokalaria().partidaHaiseratu();
 		Jokalaria.getJokalaria().partidaJokatu();
 	}

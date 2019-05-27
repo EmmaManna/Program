@@ -29,12 +29,7 @@ public class JokalariaTest {
 	}
 
 	@Test
-	public void testPartidaJokatu() {
-		Jokalaria.getJokalaria().main();
-	}
-
-	@Test
-	public void testPartidaHaiseratu() {
+	public void testMain() {
 		fail("Not yet implemented");
 	}
 
@@ -44,22 +39,7 @@ public class JokalariaTest {
 	}
 
 	@Test
-	public void testAukeratu() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testErasoEgin() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPartidaJarraitu() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testZerEgin() {
 		fail("Not yet implemented");
 	}
 
