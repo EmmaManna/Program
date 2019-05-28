@@ -253,12 +253,29 @@ public class Jokalaria {
 		else{
 			System.out.println("Zorionak! Amaierara heldu zara, jokoa amaitu da");
 		}
+		
+		boolean irten = false;
+		String izena = " ";
+		
+		System.out.println("Pantaila itxi nahi baduzu hurrengo galderari erantzun.");
+		while(!irten){
+			try{
+				izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena? Pertsonaiarena? :)");
+				if(!izena.equalsIgnoreCase(this.getPertsonaia().izena)){
+					throw(new TeklaOkerra());
+				}
+				irten = true;
+			}
+			catch(TeklaOkerra ee){
+				System.out.println("Hori ez da zure izena... :_(");
+			}
+		}
 	}
 	
 	
 	
 	
-	private void partidaHaiseratu(){ //FUNCIONA ARREGLAR, METER NULLS EN LISTAS
+	private void partidaHaiseratu(){
 		//Istorioa hasieratu
 		boolean fitxOndo = false;
 		String izena = "fitxategiak/UndertaleStory.txt";
