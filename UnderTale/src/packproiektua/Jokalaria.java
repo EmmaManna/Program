@@ -261,7 +261,7 @@ public class Jokalaria {
 		while(!irten){
 			try{
 				izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena? Pertsonaiarena? :)");
-				if(!izena.equalsIgnoreCase(this.getPertsonaia().izena)){
+				if(!izena.equals(this.getPertsonaia().izena)){
 					throw(new TeklaOkerra());
 				}
 				irten = true;

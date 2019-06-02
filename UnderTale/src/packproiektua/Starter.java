@@ -153,7 +153,7 @@ public class Starter extends Pertsonaiak {
 				amaitu = true;
 			}
 			else{
-				if(Jokalaria.getJokalaria().getPertsonaia().hilDa()){
+				if(this.hilDa()){
 					System.out.println("Oh! Hil zara...");
 					amaitu = true;
 					
