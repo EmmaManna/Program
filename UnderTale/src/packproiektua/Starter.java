@@ -117,9 +117,6 @@ public class Starter extends Pertsonaiak {
 				catch(TeklaOkerra e){
 					System.out.println("Hori ez da emandako aukera bat, berriz saiatu");
 				}
-				catch(NumberFormatException e1){
-					System.out.println("Hori ez da zenbaki bat");
-				}
 			}
 			
 			if(hitz.ondorioaDu()){

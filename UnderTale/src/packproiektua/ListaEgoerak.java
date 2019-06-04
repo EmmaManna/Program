@@ -50,19 +50,14 @@ public class ListaEgoerak {
 		int kont = 0;
 		boolean aurkitua = false;
 		
-		if(this.lista.size() < pZenbakia-1){
-				System.out.println("Egoera hori ez dago listan");
-		}
-		
-		else{
-			while(!aurkitua){
-				egoera = itr.next();
+		while(!aurkitua){
+			egoera = itr.next();
 			
-				if(kont == pZenbakia){
-					aurkitua = true;
-				}
-				kont = kont+1;
+			if(kont == pZenbakia){
+				aurkitua = true;
 			}
+			kont = kont+1;
+			
 		}
 		
 		return egoera;

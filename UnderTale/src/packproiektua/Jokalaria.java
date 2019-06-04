@@ -120,24 +120,21 @@ public class Jokalaria {
 		
 		boolean aukeratuIzena = false;
 		while(!aukeratuIzena){
-			try{
-				System.out.println("Oh! Izen aukera ona... orduan " + jokalaria.izena + " da zure izena?");
-				System.out.println("Ondo,ondo... izen polita, " + jokalaria.izena+ " ezta?");
-				System.out.println("Mmmmm... berriro galdetuko dizut, " +jokalaria.izena+ " izena gustoko duzu?");
-				erantzuna = Teklatua.getTeklatua().baiEzIrakurri();
+			
+			System.out.println("Oh! Izen aukera ona... orduan " + jokalaria.izena + " da zure izena?");
+			System.out.println("Ondo,ondo... izen polita, " + jokalaria.izena+ " ezta?");
+			System.out.println("Mmmmm... berriro galdetuko dizut, " +jokalaria.izena+ " izena gustoko duzu?");
+			erantzuna = Teklatua.getTeklatua().baiEzIrakurri();
 		
-				if(erantzuna.equals("Ez")){
-					String izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena?");
-					jokalaria.setIzenaAldatu(izena);
-				}
-				else{
-					aukeratuIzena = true;
-				}
+			if(erantzuna.equals("Ez")){
+				String izena = Teklatua.getTeklatua().irakurriString("Zein da zure izena?");
+				jokalaria.setIzenaAldatu(izena);
 			}
-			catch(TeklaOkerra e){
-				System.out.println("Hori ez da emandako aukeretako bat");
+			else{
+				aukeratuIzena = true;
 			}
 		}
+		
 		boolean aukeratuErasoa = false;
 		Erasoa eraso = null;
 		
@@ -149,9 +146,6 @@ public class Jokalaria {
 				eraso = ErasoPosibleak.getErasoPosibleak().aukeratuErasoa(erasoZenb);
 				jokalaria.setErasoa(eraso);
 				aukeratuErasoa = true;
-			}
-			catch(NumberFormatException e1){
-				System.out.println("Ez duzu zenbaki bat sartu...");
 			}
 			catch(TeklaOkerra e){
 				System.out.println("Aukeratutako erasoa ez da existitzen...");
@@ -257,6 +251,7 @@ public class Jokalaria {
 		boolean irten = false;
 		String izena = " ";
 		
+		System.out.println(" ");
 		System.out.println("Pantaila itxi nahi baduzu hurrengo galderari erantzun.");
 		while(!irten){
 			try{
@@ -621,23 +616,15 @@ public class Jokalaria {
 	private boolean partidaJarraitu(){
 		boolean jarraitu = false;
 		String zer = "-";
-		boolean ondo = false;
-		
-		while(!ondo){
-			try{
-				System.out.println("Partida jokatzen jarraitu nahi duzu?");
-				zer = Teklatua.getTeklatua().baiEzIrakurri();
-				ondo = true;
-				if(zer.equals("Bai")){
-					jarraitu = true;
-				}
-				else{
-					jarraitu = false;
-				}
-			}
-			catch(TeklaOkerra e){
-				System.out.println("Bai edo Ez erantzun behar duzu.");
-			}
+
+		System.out.println("Partida jokatzen jarraitu nahi duzu?");
+		zer = Teklatua.getTeklatua().baiEzIrakurri();
+				
+		if(zer.equals("Bai")){
+			jarraitu = true;
+		}
+		else{
+			jarraitu = false;
 		}
 		
 		return jarraitu;
